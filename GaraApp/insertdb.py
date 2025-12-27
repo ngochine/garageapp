@@ -1,4 +1,4 @@
-from models import *
+from .models import *
 if __name__ == "__main__":
     with app.app_context():
         with open("data/diachi.json", encoding="utf-8") as f:
