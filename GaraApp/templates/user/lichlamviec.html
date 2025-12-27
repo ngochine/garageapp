@@ -1,0 +1,71 @@
+{% extends "trangchu_daDangNhap.html" %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="card shadow-sm border-0 mb-5">
+        <div class="card-body d-flex flex-wrap justify-content-between align-items-center">
+            <div>
+                <h5 class="fw-bold mb-1">
+                    <i class="bi bi-calendar-week me-2 text-primary"></i>
+                    Tuần làm việc
+                </h5>
+                <div class="text-muted small">
+                    Quản lý ca làm theo tuần
+                </div>
+            </div>
+
+            <div class="d-flex gap-3 mt-3 mt-md-0">
+                <div class="text-center">
+                    <div class="small text-muted">Bắt đầu</div>
+                    <span class="badge bg-primary fs-6 px-3">
+                        {{ ngayBD_Tuan }}
+                    </span>
+                </div>
+                <div class="text-center">
+                    <div class="small text-muted">Kết thúc</div>
+                    <span class="badge bg-success fs-6 px-3">
+                        {{ ngayKT_Tuan }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-center fw-bold mb-4 text-uppercase">
+        Ca làm việc trong tuần
+    </h3>
+    <div class="card shadow-sm border-0">
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center mb-0 shift-table">
+                <thead class="table-dark">
+                <tr>
+                    <th style="width: 130px">Ca làm</th>
+                    <th>Thứ hai</th>
+                    <th>Thứ ba</th>
+                    <th>Thứ tư</th>
+                    <th>Thứ năm</th>
+                    <th>Thứ sáu</th>
+                    <th>Thứ bảy</th>
+                    <th>Chủ nhật</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for gio in khung_gio %}
+                <tr>
+                    <th class="bg-light fw-semibold">{{ gio }}</th>
+                    {% for thu in range(2,9) %}
+                        {% if thu in ca.get(gio, {}) %}
+                            <td class="bg-success-subtle ca">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                            </td>
+                        {% else %}
+                            <td class="text-muted"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

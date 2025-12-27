@@ -1,0 +1,92 @@
+[
+    {
+      "maTaiKhoan": 1,
+      "tenNguoiDung": "admin",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 4,
+      "ngayTaoTaiKhoan": "2024-01-15T08:00:00",
+      "maNhanVien": 1
+    },
+    {
+      "maTaiKhoan": 2,
+      "tenNguoiDung": "nguyenvana",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 1,
+      "ngayTaoTaiKhoan": "2024-02-01T09:30:00",
+      "maNhanVien": 2
+    },
+    {
+      "maTaiKhoan": 3,
+      "tenNguoiDung": "tranthib",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 1,
+      "ngayTaoTaiKhoan": "2024-02-05T10:15:00",
+      "maNhanVien": 3
+    },
+    {
+      "maTaiKhoan": 4,
+      "tenNguoiDung": "levanc",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 3,
+      "ngayTaoTaiKhoan": "2024-02-10T14:20:00",
+      "maNhanVien": 4
+    },
+    {
+      "maTaiKhoan": 5,
+      "tenNguoiDung": "phamthid",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 2,
+      "ngayTaoTaiKhoan": "2024-02-15T11:00:00",
+      "maNhanVien": 5
+    },
+    {
+      "maTaiKhoan": 6,
+      "tenNguoiDung": "hoangvane",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 1,
+      "ngayTaoTaiKhoan": "2024-03-01T08:45:00",
+      "maNhanVien": 6
+    },
+    {
+      "maTaiKhoan": 7,
+      "tenNguoiDung": "dovanthif",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 3,
+      "ngayTaoTaiKhoan": "2024-03-05T13:20:00",
+      "maNhanVien": 7
+    },
+    {
+      "maTaiKhoan": 8,
+      "tenNguoiDung": "vuthig",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 1,
+      "ngayTaoTaiKhoan": "2024-03-10T09:15:00",
+      "maNhanVien": 8
+    },
+    {
+      "maTaiKhoan": 9,
+      "tenNguoiDung": "buivanh",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 3,
+      "ngayTaoTaiKhoan": "2024-03-15T10:30:00",
+      "maNhanVien": 9
+    },
+    {
+      "maTaiKhoan": 10,
+      "tenNguoiDung": "dangthii",
+      "matKhau": "123456",
+      "avatar": "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg",
+      "vaiTro": 4,
+      "ngayTaoTaiKhoan": "2024-03-20T14:00:00",
+      "maNhanVien": 10
+    }
+  ]

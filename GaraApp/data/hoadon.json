@@ -1,0 +1,82 @@
+[
+  {
+    "ngayTaoHoaDon": "2024-12-01",
+    "tongTien": 830000.00,
+    "trangThai": "DA_CHAP_NHAN",
+    "hinhThucThanhToan": "Tiền mặt",
+    "maTaiKhoan": 4,
+    "maPSC": 1
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-01",
+    "tongTien": 1250000.00,
+    "trangThai": "CHUA_XU_LY",
+    "hinhThucThanhToan": null,
+    "maTaiKhoan": 4,
+    "maPSC": 2
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-01",
+    "tongTien": 950000.00,
+    "trangThai": "DA_CHAP_NHAN",
+    "hinhThucThanhToan": "Chuyển khoản",
+    "maTaiKhoan": 8,
+    "maPSC": 3
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-02",
+    "tongTien": 1580000.00,
+    "trangThai": "DA_CHAP_NHAN",
+    "hinhThucThanhToan": "Tiền mặt",
+    "maTaiKhoan": 4,
+    "maPSC": 4
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-02",
+    "tongTien": 680000.00,
+    "trangThai": "CHUA_XU_LY",
+    "hinhThucThanhToan": null,
+    "maTaiKhoan": 8,
+    "maPSC": 5
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-03",
+    "tongTien": 1120000.00,
+    "trangThai": "DA_CHAP_NHAN",
+    "hinhThucThanhToan": "Thẻ",
+    "maTaiKhoan": 4,
+    "maPSC": 6
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-03",
+    "tongTien": 2100000.00,
+    "trangThai": "CHUA_XU_LY",
+    "hinhThucThanhToan": null,
+    "maTaiKhoan": 8,
+    "maPSC": 7
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-04",
+    "tongTien": 1450000.00,
+    "trangThai": "DA_CHAP_NHAN",
+    "hinhThucThanhToan": "Chuyển khoản",
+    "maTaiKhoan": 4,
+    "maPSC": 8
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-04",
+    "tongTien": 1850000.00,
+    "trangThai": "CHUA_XU_LY",
+    "hinhThucThanhToan": null,
+    "maTaiKhoan": 8,
+    "maPSC": 9
+  },
+  {
+    "ngayTaoHoaDon": "2024-12-04",
+    "tongTien": 570000.00,
+    "trangThai": "DA_CHAP_NHAN",
+    "hinhThucThanhToan": "Tiền mặt",
+    "maTaiKhoan": 4,
+    "maPSC": 10
+  }
+]

@@ -1,0 +1,139 @@
+{% extends "trangchu_daDangNhap.html"%}
+{% block title %}Yêu cầu hoàn tiền{% endblock %}
+
+{% block body %}
+
+<div class="container mb-5" style="max-width:1100px">
+
+    <!-- Nút quay về -->
+    <form class="d-flex mt-3 mb-4" action="/danhsachhoadon">
+        <button class="btn btn-secondary px-4 rounded-3" type="submit">
+            ← Quay về
+        </button>
+    </form>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-lg-6">
+            <form action="/danhsachhoadon/hoantien" method="post">
+
+                <input type="hidden" name="maHoaDon" value="{{ hd.maHoaDon }}"> <!--Gửi lên để lưu yêu cầu -->
+
+                <div class="card shadow-sm border-0 rounded-4 h-100 p-4">
+
+                    <h5 class="fw-bold text-center mb-4 text-uppercase">
+                        Yêu cầu hoàn tiền
+                    </h5>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Nội dung yêu cầu</label>
+                        <select class="form-select rounded-3" name="noidung" required>
+                            <option>Hoàn tiền</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Lý do / ghi chú</label>
+                        <textarea
+                                class="form-control rounded-3"
+                                name="ghichu"
+                                rows="4"
+                                maxlength="100"
+                                placeholder="Nhập lý do / ghi chú"
+                                style="resize:none"
+                                required></textarea>
+                        <small class="text-muted">Tối đa 100 ký tự</small>
+                    </div>
+
+                    <div class="mt-auto text-end">
+                        <button type="submit"
+                                class="btn btn-danger px-5 py-2 rounded-3 fw-semibold">
+                            Gửi yêu cầu
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-4 h-100 p-4">
+
+                <h5 class="fw-bold text-center mb-4 text-uppercase">
+                    Thông tin hóa đơn
+                </h5>
+
+                <table class="table table-hover align-middle mb-0">
+                    <tbody>
+
+                    <tr>
+                        <td class="fw-semibold"> Ngày thanh toán</td>
+                        <td>{{hd.ngayTaoHoaDon}}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="fw-semibold">Mã phiếu sửa chữa</td>
+                        <td>{{hd.maPSC}}</td>
+                    </tr>
+
+                    <tr class="table-light">
+                        <td colspan="2" class="fw-bold">
+                            Thông tin khách hàng
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Tên khách hàng</td>
+                        <td>{{kh.ho}} {{kh.ten}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Số điện thoại</td>
+                        <td>{{kh.SDT}}</td>
+                    </tr>
+
+                    <tr class="table-light">
+                        <td colspan="2" class="fw-bold">
+                            Chi tiết hạng mục sửa chữa
+                        </td>
+                    </tr>
+
+                    <{% for h in ds_hangmuc %}
+                    <tr>
+                        <td>{{h.tenHangMuc}}</td>
+                        <td>{{h.chiPhiHienHanh}}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr class="table-light">
+                        <td colspan="2" class="fw-bold">
+                            Chi tiết linh kiện sửa chữa
+                        </td>
+                    </tr>
+
+                    {% for h in ds_linhkien %}
+                    <tr>
+                        <td>( x{{h.soLuong}} ){{h.tenLinhKien}}</td>
+                        <td>{{h.donGiaHienHanh}}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <td class="fw-semibold">Thuế (%)</td>
+                        <td>{% if tyLeThue %} {{tyLeThue}} {%else%} 0.0 {% endif %} </td>
+                    </tr>
+
+                    <tr class="table-secondary">
+                        <td class="fw-bold" style="color: red;">Tổng hóa đơn</td>
+                        <td class="fw-bold fs-5">{{hd.tongTien}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

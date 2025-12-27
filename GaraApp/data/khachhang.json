@@ -1,0 +1,112 @@
+[
+  {
+    "ho": "Trần Văn",
+    "ten": "Anh",
+    "SDT": "0811234567",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1985-03-15",
+    "CCCD": "079085031567",
+    "email": "tranvananh@gmail.com",
+    "maDiaChi": 1,
+    "loaiKhachHang": "VIP"
+  },
+  {
+    "ho": "Nguyễn Thị",
+    "ten": "Bảo",
+    "SDT": "0822345678",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1990-07-20",
+    "CCCD": "079090072678",
+    "email": "nguyenthibao@gmail.com",
+    "maDiaChi": 2,
+    "loaiKhachHang": "Thường"
+  },
+  {
+    "ho": "Lê Văn",
+    "ten": "Chiến",
+    "SDT": "0833456789",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1988-12-10",
+    "CCCD": "079088121789",
+    "email": "levanchien@gmail.com",
+    "maDiaChi": 3,
+    "loaiKhachHang": "VIP"
+  },
+  {
+    "ho": "Phạm",
+    "ten": "Thị Diễm",
+    "SDT": "0844567890",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1992-05-25",
+    "CCCD": "079092052890",
+    "email": "phamthidiem@gmail.com",
+    "maDiaChi": 4,
+    "loaiKhachHang": "Thường"
+  },
+  {
+    "ho" : "Hoàng Văn",
+    "ten": "Đức",
+    "SDT": "0855678901",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1986-09-18",
+    "CCCD": "079086091901",
+    "email": "hoangvanduc@gmail.com",
+    "maDiaChi": 5,
+    "loaiKhachHang": "Thường"
+  },
+  {
+    "ho": "Vũ Thị",
+    "ten": "Ê",
+    "SDT": "0866789012",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1991-11-05",
+    "CCCD": "079091110012",
+    "email": "vuthie@gmail.com",
+    "maDiaChi": 6,
+    "loaiKhachHang": "VIP"
+  },
+  {
+    "ho": "Đặng Văn",
+    "ten" : "Phong",
+    "SDT": "0877890123",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1989-02-14",
+    "CCCD": "079089020123",
+    "email": "dangvanphong@gmail.com",
+    "maDiaChi": 7,
+    "loaiKhachHang": "Thường"
+  },
+  {
+    "ho": "Bùi Thị",
+    "ten": "Giang",
+    "SDT": "0888901234",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1993-08-30",
+    "CCCD": "079093081234",
+    "email": "buithigiang@gmail.com",
+    "maDiaChi": 8,
+    "loaiKhachHang": "VIP"
+  },
+  {
+    "ho": "Ngô Văn",
+    "ten": "Hải",
+    "SDT": "0899012345",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1987-06-22",
+    "CCCD": "079087061345",
+    "email": "ngovanhai@gmail.com",
+    "maDiaChi": 9,
+    "loaiKhachHang": "Thường"
+  },
+  {
+    "ho": "Lý Thị",
+    "ten": "Hồng",
+    "SDT": "0800123456",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1994-04-12",
+    "CCCD": "079094041456",
+    "email": "lythihong@gmail.com",
+    "maDiaChi": 10,
+    "loaiKhachHang": "VIP"
+  }
+]

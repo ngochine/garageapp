@@ -1,0 +1,126 @@
+{% extends "trangchu_daDangNhap.html"%}
+
+
+{% block body%}
+
+
+<div class="hoadon-phieusuachua mt-3 mb-3">
+
+    <div class="control">
+        <form class="d-flex " action="/chothanhtoan">
+            <button class="btn btn-primary quayve-button" type="submit">Quay về</button>
+        </form>
+    </div>
+
+    <div class="card input-money mt-3">
+        <form class="container" action="/xulythanhtoan" method="post">
+            <input type="hidden" name="maPSC" value="{{ maPSC }}">
+            <input type="hidden" name="tongHoaDon" value="{{ tongHoaDon }}">
+            <input type="hidden" name="tienThua" value="{{ tienThua }}">
+
+            <label for="soTien">Nhập số tiền</label>
+            <input type="number"
+                   id="soTien"
+                   name="soTien"
+                   placeholder="Nhập số tiền..."
+                   min="{{ tongHoaDon }}"
+                   value="{{ tongHoaDon }}"
+                   required>
+            {% if tongHoaDon==0 %}
+            <button class="btn btn-primary xacnhan-button mt-3" type="submit" disabled>
+                Xử lý thanh toán
+            </button>
+            {% else %}
+            <button class="btn btn-primary xacnhan-button mt-3" type="submit" id="btnXacNhan">
+                Xử lý thanh toán
+            </button>
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="card p-4  phieusuachua-form">
+        <div class="container mt-3">
+            <h3>THÔNG TIN PHIẾU SỬA CHỮA CHỜ THANH TOÁN</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Thông tin</th>
+                    <th>Giá trị</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Mã phiếu tiếp nhận</td>
+                    <td>{{maPTN}}</td>
+                </tr>
+                <tr>
+                    <td>Mã phiếu sửa chữa</td>
+                    <td>{{maPSC}}</td>
+                </tr>
+                <tr>
+                    <td>Mã khách hàng</td>
+                    <td>{{maKhachHang}}</td>
+                </tr>
+                <!--                Hang muc-->
+                <tr>
+                    <td style="font-weight: bold;">Chi tiết hạng mục sửa chữa</td>
+                    <td></td>
+                </tr>
+                {% for h in ds_hangmuc %}
+                <tr>
+                    <td>{{h.tenHangMuc}}</td>
+                    <td>{{h.chiPhiHienHanh}}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>Không có hạng mục nào</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+
+                <!--                Linh kien-->
+                <tr>
+                    <td style="font-weight: bold;">Chi tiết linh kiện sửa chữa</td>
+                    <td></td>
+                </tr>
+                {% for l in ds_linhkien %}
+                <tr>
+                    <td>(x{{l.soLuong}}) {{l.tenLinhKien}}</td>
+                    <td>{{l.donGiaHienHanh}}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>Không có linh kiện nào</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+                <!--                Thue-->
+                <tr>
+                    <td style="font-weight: bold;">Thuế %</td>
+                    <td>{{giaTriThue}}</td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold; color: red; font-size: 20px;">Tổng</td>
+                    <td style="font-weight: bold; color: red;">{{tongHoaDon}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const input = document.getElementById('soTien');
+    const btn = document.getElementById('btnXacNhan');
+    const tong = parseFloat("{{ tongHoaDon }}");
+    function kiemTra() {
+        const val = parseFloat(input.value);
+        btn.disabled = isNaN(val) || val < tong;
+    }
+    kiemTra();
+    input.addEventListener('input', kiemTra);
+</script>
+
+{% endblock %}

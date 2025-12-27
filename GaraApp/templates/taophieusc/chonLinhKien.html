@@ -1,0 +1,191 @@
+{% extends "trangchu_daDangNhap.html" %}
+{% block title %}Tạo phiếu sửa chữa{% endblock %}
+{% block body %}
+<script src="../../static/js/linhkien.js"></script>
+<div class="container py-4">
+
+    <h1 class="text-center m-4 text-uppercase">Chọn linh kiện sửa chữa</h1>
+    <div class="row justify-content-between m-4">
+        <a href="{{ url_for('chon_hang_muc', ptn_id=ctPTN.maPTN) }}"
+           class="btn btn-primary col-2"
+           style="background-color:#153B50;color:#fff;">
+            Quay lại
+        </a>
+
+        <a href="{{ url_for('xac_nhan_tao', ptn_id=ctPTN.maPTN) }}"
+           class="btn btn-primary col-2 {% if not selected_hangmuc %}disabled{% endif %}"
+           style="background-color:#153B50;color:#fff;">
+            LẬP PHIẾU
+        </a>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-4 col-12 mb-3">
+            <div class="border rounded-3 shadow p-3 h-100">
+                <h5 class="text-center mb-3 text-primary">Thông tin xe</h5>
+                <table class="table table-sm">
+                    <tr><td>Mã PTN:</td><td>{{ ctPTN.maPTN }}</td></tr>
+                    <tr><td>Loại xe:</td><td>{{ ctPTN.xe.loaiXe }}</td></tr>
+                    <tr><td>Biển số:</td><td>{{ ctPTN.xe.bienSoXe }}</td></tr>
+                    <tr><td>Lỗi mô tả:</td><td>{{ ctPTN.loiMoTa }}</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-12">
+            <div class="border rounded-3 shadow p-3 h-100">
+                <h5 class="text-center mb-3 text-info">Hạng mục đã chọn</h5>
+                <div class="overflow-auto" style="max-height:400px">
+                    {% for hm in selected_hangmuc.values() %}
+                    <div class="card mb-2 p-2">
+                        <p class="mb-0 fw-bold">{{ hm.tenHangMuc }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4 col-12 mb-3">
+            <div class="border rounded-3 shadow p-3 h-100">
+                <h5 class="text-center mb-3 text-info">Linh kiện đã chọn</h5>
+                <div class="overflow-auto" style="max-height:800px" id="dsLinhKienDaChon">
+
+                    {% for lk in selected_linhkien.values() %}
+                    <div class="card mb-2" id="LK{{ lk.maLinhKien }}">
+                        <div class="card-body d-flex justify-content-between p-2">
+                            <div>
+                                <p class="fw-bold mb-1">{{ lk.tenLinhKien }}</p>
+                                <p class="mb-0">Mã: {{ lk.maLinhKien }}</p>
+                                <p class="mb-0">Đơn giá: {{ lk.donGia }} VNĐ</p>
+                                <p class="mb-0">Tồn kho: {{ lk.soLuongTon }}</p>
+                            </div>
+
+                            <div class="d-flex flex-column">
+                                <input type="number"
+                                       class="form-control mb-2 text-center"
+                                       min="1"  max="{{ lk.soLuongTon }}"
+                                       value="{{ lk.soLuong }}"
+                                       onblur="updateSoLuongLinhKien({{ lk.maLinhKien }}, this)">
+
+                                <button class="btn btn-warning"
+                                        onclick="deleteLinhKien({{ lk.maLinhKien }})">
+                                    XOÁ
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-12">
+            <form class="row g-2 mb-3" action="{{url_for('chon_linh_kien', ptn_id = ctPTN.maPTN)}}">
+                <div class="col-10 col-md-8">
+                    <input value="{{request.args.get('ten_linh_kien','')}}" name="ten_linh_kien" class="form-control" placeholder="Tìm kiếm tên linh kiện">
+                </div>
+                <div class="col-2 col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Tìm kiếm</button>
+                </div>
+            </form>
+            <div class="border rounded-3 shadow p-3 h-100">
+                <h5 class="text-center mb-3 text-primary">Danh sách linh kiện</h5>
+
+                {% if selected_hangmuc %}
+                {% for lk in dsLinhKien %}
+                <div class="card mb-2 p-2">
+                    <div class="d-flex align-items-center">
+
+                        <img src="{{ lk.anhLinhKien }}" style="max-height:60px" class="me-3">
+
+                        <div class="flex-grow-1">
+                            <p class="fw-bold mb-1">{{ lk.tenLinhKien }}</p>
+                            <p class="mb-0">Mã: {{ lk.maLinhKien }}</p>
+                            <p class="mb-0">Giá: {{ "{:,.0f}".format(lk.donGia|float) }} VNĐ</p>
+                            <p class="mb-0">Tồn: {{ lk.soLuongTon }}</p>
+                        </div>
+
+                       {% if lk.da_bao_thieu %}
+                            <button class="btn btn-secondary" style="width:100px" disabled> ĐÃ BÁO THIẾU</button>
+                        {% else %}
+                            <button class="btn text-white" id="btnChonLK{{ lk.maLinhKien }}" style="background:#0892A5; width:100px"
+                                    onclick="chonLinhKien({{ lk.maLinhKien }}, '{{ lk.tenLinhKien }}', {{ lk.donGia }}, {{ lk.soLuongTon }})">
+                                THÊM
+                            </button>
+                        {% endif %}
+
+
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p class="text-center fst-italic text-muted">
+                    Vui lòng chọn ít nhất một hạng mục
+                </p>
+                {% endif %}
+                <nav class="mt-3">
+                    <ul class="pagination justify-content-center">
+                        {% if page > 1 %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page-1}}&ten_linh_kien={{ request.args.get('ten_linh_kien','')}}">&laquo;</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link">&laquo;</span>
+                        </li>
+                        {% endif %}
+
+                        {% for i in range(1, pages+1) %}
+                        {% if page == i %}
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{i}}&ten_linh_kien={{ request.args.get('ten_linh_kien','')}}">{{i}}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{i}}&ten_linh_kien={{ request.args.get('ten_linh_kien','')}}">{{i}}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% if page < pages %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page+1}}&ten_linh_kien={{ request.args.get('ten_linh_kien','')}}">&raquo;</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link">&raquo;</span>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalBaoThieu" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận báo thiếu linh kiện</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Bạn muốn báo thiếu linh kiện này với quản lý không?</p>
+                <textarea placeholder="Ghi chú tới quản lý" id="ghiChuBaoThieu" class="form-control" rows="3"></textarea>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Bỏ qua</button>
+                <button class="btn btn-danger" onclick="baothieulinhkien()">Báo thiếu</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

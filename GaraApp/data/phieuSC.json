@@ -1,0 +1,62 @@
+[
+  {
+    "ngayLap": "2024-12-01 10:00:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 2,
+    "maPTN": 1
+  },
+  {
+    "ngayLap": "2024-12-01 11:00:00",
+    "trangThai": "Đang sửa chữa",
+    "maTaiKhoan": 3,
+    "maPTN": 2
+  },
+  {
+    "ngayLap": "2024-12-01 14:00:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 2,
+    "maPTN": 3
+  },
+  {
+    "ngayLap": "2024-12-02 09:30:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 7,
+    "maPTN": 4
+  },
+  {
+    "ngayLap": "2024-12-02 13:00:00",
+    "trangThai": "Đang sửa chữa",
+    "maTaiKhoan": 3,
+    "maPTN": 5
+  },
+  {
+    "ngayLap": "2024-12-03 10:30:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 2,
+    "maPTN": 6
+  },
+  {
+    "ngayLap": "2024-12-03 15:00:00",
+    "trangThai": "Đang sửa chữa",
+    "maTaiKhoan": 7,
+    "maPTN": 7
+  },
+  {
+    "ngayLap": "2024-12-04 09:00:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 3,
+    "maPTN": 8
+  },
+  {
+    "ngayLap": "2024-12-04 11:30:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 10,
+    "maPTN": 9
+  },
+  {
+    "ngayLap": "2024-12-04 14:30:00",
+    "trangThai": "Chờ thanh toán",
+    "maTaiKhoan": 2,
+    "maPTN": 10
+  }
+]

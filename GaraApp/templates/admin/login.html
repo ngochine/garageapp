@@ -1,0 +1,30 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<link rel="icon" href="https://res.cloudinary.com/dvfuzolim/image/upload/v1766407454/download_aw7fn2.png">
+<div class="text-center mb-4">
+    <h3 class="fw-bold text-primary">ĐĂNG NHẬP QUẢN TRỊ</h3>
+    <p class="text-muted">Chỉ dành cho quản lý hệ thống</p>
+</div>
+
+{% if err_msg %}
+<div class="alert alert-danger">
+  {{ err_msg }}
+</div>
+{% endif %}
+
+<form method="post">
+  <div class="form-group">
+    <label for="tenNguoiDung">Tên người dùng</label>
+    <input type="text" class="form-control" id="tenNguoiDung" name="tenNguoiDung" required>
+  </div>
+  <div class="form-group">
+    <label for="matKhau">Mật khẩu</label>
+    <input type="password" class="form-control" id="matKhau" name="matKhau" required>
+  </div>
+  <button type="submit" class="btn btn-primary col-12">Đăng nhập</button>
+</form>
+
+<!--    footer-->
+    {% include "layout/footer.html" %}
+
+{% endblock %}

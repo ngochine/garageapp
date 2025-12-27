@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%} Trang chủ {%endblock%}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="https://res.cloudinary.com/dvfuzolim/image/upload/v1766407454/download_aw7fn2.png">
+
+    <link href="../../static/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/dangnhap.css">
+    <link rel="stylesheet" href="../../static/css/lapphieutiepnhan.css">
+    <link rel="stylesheet" href="../../static/css/taohoadon.css">
+    <link rel="stylesheet" href="../../static/css/taikhoan.css">
+    <link rel="stylesheet" href="../../static/css/lichlamviec.css">
+    <link rel="stylesheet" href="../../static/css/xulyyeucau.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+    {% block header %}
+        {% include "layout/header.html" %}
+    {% endblock %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, msg in messages %}
+                <div class="alert alert-{{ category }} m-3">
+                    {{ msg }}
+                </div>
+          {% endfor %}
+    {% endwith %}
+    {% block body %}
+
+    {% endblock %}
+
+    {% block footer %}
+        {% include "layout/footer.html" %}
+    {% endblock %}
+
+</body>
+</html>

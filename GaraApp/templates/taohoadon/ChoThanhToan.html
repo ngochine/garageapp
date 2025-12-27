@@ -1,0 +1,174 @@
+{% extends "trangchu_daDangNhap.html" %}
+
+{% block body %}
+
+
+<div class="container mt-3">
+
+    <!-- Tiêu đề & tìm kiếm -->
+    <div class="row mb-4">
+        <div class="col-lg-4 col-12">
+            <h3 class="text-uppercase fw-bolder">Tạo hóa đơn</h3>
+            <p>Vui lòng chọn phiếu sửa chữa.</p>
+        </div>
+    </div>
+
+    <form method="get" class="row justify-content-center mb-4">
+
+        <div class="col-md-4 col-12 mb-2">
+            <input class="form-control" name="tukhoa" value="{{tukhoa}}"
+                   placeholder="Nhập mã phiếu hoặc tên khách hàng">
+        </div>
+
+        <div class="col-md-3 col-12 mb-2">
+            <select class="form-select" name="kieutim">
+                <option value="maPTN" {% if kieutim=='maPTN' %}selected{% endif %}>Mã phiếu tiếp nhận</option>
+                <option value="maPSC" {% if kieutim=='maPSC' %}selected{% endif %}>Mã phiếu sửa chữa</option>
+                <option value="tenKH" {% if kieutim=='tenKH' %}selected{% endif %}>Tên khách hàng</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 col-12 mb-2">
+            <button class="btn w-100" style="background:#e01a4f; color:#fff">
+                Tìm kiếm
+            </button>
+        </div>
+
+    </form>
+
+
+    <!-- Vùng thông tin + danh sách phiếu -->
+    <div class="row">
+
+        <!-- Thông tin phiếu -->
+        <div class="col-lg-4 col-12 mb-3">
+            <div class="border rounded-3 shadow p-4 bg-light">
+                <h5 class="text-center mb-3">Thông tin phiếu đã chọn</h5>
+
+                <table class="table table-borderless">
+                    <tbody>
+                    <tr>
+                        <td class="fw-bold">Mã phiếu sửa chữa:</td>
+                        <td>
+                            {{thongtin_chon.maPSC}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Mã phiếu tiếp nhận:</td>
+                        <td>{{thongtin_chon.maPTN}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Mã khách hàng:</td>
+                        <td>{{thongtin_chon.maKhachHang}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Họ tên khách hàng:</td>
+                        <td>{{thongtin_chon.hoKhachHang}} {{thongtin_chon.tenKhachHang}}</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Ngày lập PSC:</td>
+                        <td>{{thongtin_chon.ngayLapPSC}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Danh sách phiếu -->
+        <div class="col-lg-8 col-12 mb-3">
+            <div class="border rounded-3 shadow p-3 overflow-auto" style="max-height: 400px">
+                <table class="table table-striped text-center align-middle">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã phiếu sửa chữa</th>
+                        <th>Mã phiếu tiếp nhận</th>
+                        <th>Khách hàng</th>
+                        <th>Ngày tiếp nhận</th>
+                        <th>Ngày sửa chữa</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for t in thongtin %}
+                    <tr class="{% if thongtin_chon and t.maPSC == thongtin_chon.maPSC %}table-success{% endif %}">
+                        <td>{{loop.index}}</td>
+                        <td>{{t.maPSC}}</td>
+                        <td>{{t.maPTN}}</td>
+                        <td>{{t.hoKhachHang}} {{t.tenKhachHang}}</td>
+                        <td>{{t.ngayLapPTN}}</td>
+                        <td>{{t.ngayLapPSC}}</td>
+
+                        <td>
+                            {% if thongtin_chon and t.maPSC == thongtin_chon.maPSC %}
+                            <button class="btn btn-secondary btn-sm px-4" disabled>
+                                Chọn
+                            </button>
+                            {% else %}
+                            <a href="/chothanhtoan?maPSC={{t.maPSC}}{% if tukhoa %}&tukhoa={{ tukhoa }}{% endif %}{% if kieutim %}&kieutim={{ kieutim }}{% endif %}"
+                               class="btn btn-sm px-4"
+                               style="background-color: #e01a4f;border-color: #e01a4f; color: white">
+                                Chọn
+                            </a>
+                            {% endif %}
+                        </td>
+
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!--Phân trang-->
+            {% if pages %}
+            <ul class="pagination mt-3">
+                <li class="page-item {% if page == 1 %}disabled{% endif %} ">
+                    <a class="page-link"
+                       href="/chothanhtoan?page={{ page - 1 }}{% if tukhoa %}&tukhoa={{tukhoa}}{% endif %}{% if kieutim %}&kieutim={{kieutim}}{% endif %}">
+                        Trước
+                    </a>
+                </li>
+                {% for i in range(1, pages + 1) %}
+                <li class="page-item {% if i == page %}active{% endif %} ">
+                    <a class="page-link"
+                       href="/chothanhtoan?page={{i}}{% if tukhoa %}&tukhoa={{tukhoa}}{% endif %}{% if kieutim %}&kieutim={{kieutim}}{% endif %}">
+                        {{i}}
+                    </a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if page == pages %}disabled{% endif %} ">
+                    <a class="page-link"
+                       href="/chothanhtoan?page={{ page + 1 }}{% if tukhoa %}&tukhoa={{tukhoa}}{% endif %}{% if kieutim %}&kieutim={{kieutim}}{% endif %}">
+                        Sau
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
+
+        </div>
+
+    </div>
+    <!-- Nút tạo hóa đơn -->
+    {% if thongtin_chon %}
+    <div class="mb-3">
+        <form action="/taohoadon" class="d-flex">
+            <input type="hidden" name="maPSC" value="{{ thongtin_chon.maPSC }}">
+            <button class="btn btn-primary ms-auto" type="submit"
+                    style="background-color: #e01a4f;border-color: #e01a4f;">Tạo hóa đơn
+            </button>
+        </form>
+    </div>
+    {% else %}
+    <div class="mb-3">
+        <form action="/taohoadon" class="d-flex">
+            <input type="hidden" name="maPSC" value="{{ thongtin_chon.maPSC }}">
+            <button class="btn btn-primary ms-auto" type="submit"
+                    style="background-color: #e01a4f;border-color: #e01a4f;" disabled>Tạo hóa đơn
+            </button>
+        </form>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

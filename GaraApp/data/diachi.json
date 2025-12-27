@@ -1,0 +1,62 @@
+[
+  {
+    "tinhThanh": "Hồ Chí Minh",
+    "phuong": "Phường 1",
+    "xa": "Quận 1",
+    "duong": "Đường Nguyễn Huệ"
+  },
+  {
+    "tinhThanh": "Hà Nội",
+    "phuong": "Phường Hoàn Kiếm",
+    "xa": "Quận Hoàn Kiếm",
+    "duong": "Đường Tràng Tiền"
+  },
+  {
+    "tinhThanh": "Đà Nẵng",
+    "phuong": "Phường Hải Châu",
+    "xa": "Quận Hải Châu",
+    "duong": "Đường Bạch Đằng"
+  },
+  {
+    "tinhThanh": "Hồ Chí Minh",
+    "phuong": "Phường 12",
+    "xa": "Quận 10",
+    "duong": "Đường 3 Tháng 2"
+  },
+  {
+    "tinhThanh": "Hà Nội",
+    "phuong": "Phường Đống Đa",
+    "xa": "Quận Đống Đa",
+    "duong": "Đường Láng"
+  },
+  {
+    "tinhThanh": "Cần Thơ",
+    "phuong": "Phường An Hòa",
+    "xa": "Quận Ninh Kiều",
+    "duong": "Đường Mậu Thân"
+  },
+  {
+    "tinhThanh": "Hồ Chí Minh",
+    "phuong": "Phường Bình Trưng Đông",
+    "xa": "Quận 2",
+    "duong": "Đường Mai Chí Thọ"
+  },
+  {
+    "tinhThanh": "Hải Phòng",
+    "phuong": "Phường Lạch Tray",
+    "xa": "Quận Ngô Quyền",
+    "duong": "Đường Lạch Tray"
+  },
+  {
+    "tinhThanh": "Hồ Chí Minh",
+    "phuong": "Phường Tân Phú",
+    "xa": "Quận 7",
+    "duong": "Đường Nguyễn Văn Linh"
+  },
+  {
+    "tinhThanh": "Hà Nội",
+    "phuong": "Phường Cầu Giấy",
+    "xa": "Quận Cầu Giấy",
+    "duong": "Đường Xuân Thủy"
+  }
+]

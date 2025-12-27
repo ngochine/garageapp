@@ -1,0 +1,62 @@
+[
+  {
+    "maLoaiXe": 5,
+    "bienSoXe": "51A-12345",
+    "hangXe": "Toyota Vios",
+    "maKhachHang": 1
+  },
+  {
+    "maLoaiXe": 2,
+    "bienSoXe": "51B1-23456",
+    "hangXe": "Honda Wave RSX",
+    "maKhachHang": 2
+  },
+  {
+    "maLoaiXe": 3,
+    "bienSoXe": "30C-34567",
+    "hangXe": "VinFast VF8",
+    "maKhachHang": 3
+  },
+  {
+    "maLoaiXe": 4,
+    "bienSoXe": "43D-45678",
+    "hangXe": "Giant Explore E+",
+    "maKhachHang": 4
+  },
+  {
+    "maLoaiXe": 5,
+    "bienSoXe": "51E1-56789",
+    "hangXe": "VinFast Klara S",
+    "maKhachHang": 5
+  },
+  {
+    "maLoaiXe": 6,
+    "bienSoXe": "50F-67890",
+    "hangXe": "Mazda CX-5",
+    "maKhachHang": 6
+  },
+  {
+    "maLoaiXe": 2,
+    "bienSoXe": "",
+    "hangXe": "Giant ATX 810",
+    "maKhachHang": 7
+  },
+  {
+    "maLoaiXe": 4,
+    "bienSoXe": "31H1-89012",
+    "hangXe": "Yamaha Exciter 155",
+    "maKhachHang": 8
+  },
+  {
+    "maLoaiXe": 4,
+    "bienSoXe": "51K-90123",
+    "hangXe": "VinFast VF5",
+    "maKhachHang": 9
+  },
+  {
+    "maLoaiXe": 5,
+    "bienSoXe": "43L1-01234",
+    "hangXe": "Pega Xmen",
+    "maKhachHang": 10
+  }
+]

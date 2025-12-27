@@ -1,0 +1,14 @@
+[
+  {
+    "tenQuyDinh": "Số lượng xe tiếp nhận/ngày",
+    "giaTri": 30,
+    "donVi": "xe",
+    "ngayTao": "2024-01-01"
+  },
+  {
+    "tenQuyDinh": "Thuế VAT",
+    "giaTri": 10,
+    "donVi": "%",
+    "ngayTao": "2024-01-01"
+  }
+]

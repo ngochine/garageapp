@@ -1,0 +1,64 @@
+.details-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.customer-card,
+.car-card {
+    width: 45%;
+    border-radius: 15px;
+    color: #0f2a91;
+    background: linear-gradient(180deg, #e9ff97, #cbffff);
+    padding: 20px;
+}
+
+.customer-card {
+    height: 1300px;
+}
+
+.car-card {
+    height: 600px;
+}
+
+
+.tieptheo-button {
+    width: 400px;
+    height: 50px;
+    display: block;
+    margin-top:20px;
+    margin-left: auto;
+    background-color: #0f2a91;
+    color: white;
+    border-radius: 10px;
+}
+
+
+.xacnhan-phieutiepnhan{
+    margin: 50px auto 300px;
+}
+
+.xacnhan-form{
+    height: 500px;
+    margin: 0 100px ;
+    border-radius: 15px;
+    background-color: #ffffc7;
+}
+
+.control{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.quayve-control{
+    width: 200px;
+    margin-left: 50px;
+}
+
+.lapphieu-control {
+    width: 200px;
+    margin-right: 50px;
+}

@@ -1,0 +1,208 @@
+{% extends "trangchu_daDangNhap.html"%}
+
+{% block title %}Tạo phiếu tiếp nhận{% endblock %}
+
+{% block body%}
+<div class="container">
+    <div class="text-center mb-5 mt-4">
+        <h2 class="fw-bold text-info">TẠO HOÁ ĐƠN</h2>
+        <p class="text-muted mb-0">
+            Vui lòng nhập đầy đủ thông tin khách hàng và phương tiện để lập phiếu tiếp nhận
+        </p>
+    </div>
+    <form id="ptn-form" action="/lapphieutiepnhan" method="post" class="was-validated ">
+        {% if soXeDaNhan < soXeQuyDinh %}
+        <div class="alert alert-warning mt-2">Số xe đã nhận trong ngày: {{soXeDaNhan}} / {{soXeQuyDinh | int}}</div>
+        <div class="nuttieptheo d-flex justify-content-end">
+            <button class="btn btn-primary col-2 tieptheo-button " type="submit">Tiếp theo</button>
+        </div>
+        {% else %}
+        <div class="alert alert-danger mt-2">Số xe nhận trong ngày đạt mức tối đa: {{soXeDaNhan}} / {{soXeQuyDinh | int}}</div>
+        <div class="nuttieptheo">
+            <button class="btn btn-primary tieptheo-button" type="submit" disabled>Tiếp theo</button>
+        </div>
+        {% endif %}
+
+
+        <div class="details-info">
+            <!--        Tất cả input của khách hàng-->
+            <div class="card p-4 customer-card">
+                <!--      Họ tên khách hàng  -->
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Họ tên khách hàng</label>
+                    <input type="text" class="form-control" id="hoKhachHang" placeholder="Nhập họ khách hàng"
+                           name="hoKhachHang"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+
+                    <input type="text" class="form-control" id="tenKhachHang" placeholder="Nhập tên khách hàng"
+                           name="tenKhachHang"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+                </div>
+
+                <!--        Số điện thoại-->
+                <div class="mb-3">
+                    <label for="SDTKhachHang" class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="SDTKhachHang" name="SDTKhachHang"
+                           placeholder="Nhập số điện thoại (VD: 0912345678)" pattern="^0(3|5|7|8|9)[0-9]{8}$"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng nhập đúng số điện thoại Việt Nam.</div>
+                </div>
+
+                <!--        Địa chỉ -->
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Địa chỉ</label>
+                    <input type="text" class="form-control" id="tinhthanh" name="tinhthanh"
+                           placeholder="Nhập tỉnh/thành"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+
+                    <input type="text" class="form-control" id="phuong" name="phuong" placeholder="Nhập phường"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+
+                    <input type="text" class="form-control" id="xa" name="xa" placeholder="Nhập xã"
+                           >
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback"></div>
+
+                    <input type="text" class="form-control" id="duong" name="duong" placeholder="Nhập đường"
+                           >
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <!--        Số cccd-->
+                <div class="mb-3">
+                    <label for="cccd" class="form-label">Số CCCD</label>
+                    <input type="text" class="form-control" id="cccd" name="cccd" placeholder="Nhập số CCCD (12 số)"
+                           pattern="[0-9]{12}" required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng nhập số CCCD gồm 12 chữ số.</div>
+                </div>
+                <!--        Ngày sinh -->
+                <div class="mb-3">
+                    <label for="ngaysinh" class="form-label">Ngày sinh</label>
+                    <input type="text" class="form-control" id="ngaysinh" name="ngaysinh"
+                           placeholder="yyyy-mm-dd"
+                           pattern="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+                           >
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Vui lòng nhập ngày sinh theo định dạng năm-tháng-ngày.</div>
+                </div>
+
+                <!--        Email-->
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                           placeholder="Nhập email khách hàng">
+                </div>
+
+                <!--        Giới tính-->
+                <div class="gioi-tinh mt-3">
+                    <label class="form-label">Giới tính</label>
+                    <div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio1" name="gioitinh" value="Nam"
+                                   checked>Nam
+                            <label class="form-check-label" for="radio1"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio2" name="gioitinh" value="Nữ">Nữ
+                            <label class="form-check-label" for="radio2"></label>
+                        </div>
+                    </div>
+                </div>
+                <!--                Loại khách hang-->
+                <div class="loai-khach-hang mt-3">
+                    <label class="form-label">Loại khách hàng</label>
+                    <div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="binhthuong" name="loaikhachhang"
+                                   value="Bình thường"
+                                   checked>Bình thường
+                            <label class="form-check-label" for="radio1"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="vip" name="loaikhachhang" value="Vip">VIP
+                            <label class="form-check-label" for="radio2"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--        Hết thông tin khách hàng-->
+
+
+            <!--        Tất cả input của xe-->
+            <div class="card p-4 car-card">
+                <!--      Hãng xe  -->
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Hãng xe</label>
+                    <input type="text" class="form-control" placeholder="Nhập hãng xe" id="hangxe" name="hangxe"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+                </div>
+                <!--            Biển số xe-->
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Biển số xe</label>
+                    <input type="text" class="form-control" placeholder="Nhập biển số xe" id="biensoxe" name="biensoxe"
+                           required>
+                    <div class="valid-feedback">Đã có giá trị.</div>
+                    <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+                </div>
+                <!--        Loai xe-->
+                <div class="loai-xe">
+                    <label class="form-label">Loại xe</label>
+                    <div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="loaixe" value="Xe máy"
+                                   checked>Xe máy
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="loaixe" value="Xe ô tô">Xe ô tô
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="loaixe" value="Xe đạp">Xe đạp
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="loaixe" value="Xe đạp điện">Xe đạp điện
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="loaixe" value="Xe máy điện">Xe máy điện
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="loaixe" value="Xe ô tô điện">Xe ô tô điện
+                            <label class="form-check-label"></label>
+                        </div>
+                    </div>
+                </div>
+                <!--            Lỗi mô tả-->
+                <div class="loi-mo-ta" style="margin-top:20px;">
+                    <label class="form-label">Lỗi mô tả</label>
+                    <div class="form-floating">
+                    <textarea class="form-control" id="loiMoTa" name="loiMoTa" placeholder="Comment goes here"
+                              style="resize: none;"></textarea>
+                        <label for="loiMoTa">Nhập mô tả lỗi</label>
+                    </div>
+                </div>
+            </div>
+            <!--        Hết thông tin xe-->
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "trangchu_daDangNhap.html" %}
+{% block title %}Cập nhật trạng thái phiếu sửa chữa{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <h2 class="text-center fw-bold text-uppercase mb-4">
+        Phiếu đang sửa chữa
+    </h2>
+
+    <div class="card shadow-sm border-0 mb-5">
+        <div class="card-body">
+            <form method="get" action="{{ url_for('cap_nhat_trang_thai') }}"
+                  class="row g-3 align-items-center justify-content-center">
+                <div class="col-md-4 col-12">
+                    <input type="search" name="kw"value="{{ request.args.get('kw','') }}"
+                           class="form-control" placeholder="Nhập mã phiếu sửa chữa...">
+                </div>
+
+                <div class="col-md-2 col-12">
+                    <button type="submit" name="status" value=""
+                            class="btn w-100 {% if request.args.get('status','') == '' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                        Tất cả
+                        <span class="badge bg-warning text-dark ms-1">{{ count_tatca }}</span>
+                    </button>
+                </div>
+
+                <div class="col-md-2 col-12">
+                    <button type="submit" name="status" value="Đang sửa chữa"
+                            class="btn w-100 {% if request.args.get('status') == 'Đang sửa chữa' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                        Đang sửa
+                        <span class="badge bg-warning text-dark ms-1">{{ count_dangsua }}</span>
+                    </button>
+                </div>
+
+                <div class="col-md-2 col-12">
+                    <button type="submit" name="status" value="Chờ thanh toán"
+                            class="btn w-100 {% if request.args.get('status') == 'Chờ thanh toán' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                        Hoàn thành
+                        <span class="badge bg-warning text-dark ms-1">{{ count_hoanthanh }}</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if dsPhieu %}
+    <div class="row g-4">
+        {% for p in dsPhieu %}
+        <div class="col-lg-6 col-12">
+            <div class="card shadow-sm border-0 h-100 rounded-4">
+                <div class="card-header d-flex justify-content-between align-items-center"
+                     style="background:#153B50;color:#fff">
+                    <span class="fw-semibold">Phiếu #{{ p.maPSC }}</span>
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">
+                        {{ p.trangThai }}
+                    </span>
+                </div>
+
+                <div class="card-body">
+                    <p class="mb-2"><strong>Biển số:</strong> {{ p.phieuTiepNhan.xe.bienSoXe }}</p>
+                    <p class="mb-2"><strong>Loại xe:</strong> {{ p.phieuTiepNhan.xe.loaiXe }}</p>
+                    <p class="mb-2"><strong>Lỗi mô tả:</strong> {{ p.phieuTiepNhan.loiMoTa }}</p>
+                    <p class="mb-0 text-muted">
+                        <strong>Ngày lập:</strong> {{ p.ngayLap.strftime('%d/%m/%Y') }}
+                    </p>
+                </div>
+
+                {% if p.trangThai == 'Đang sửa chữa' %}
+                <div class="card-footer bg-light text-end">
+                    <form method="post"
+                          action="{{ url_for('cap_nhat_hoan_thanh', psc_id=p.maPSC) }}"
+                          onsubmit="return confirm('Xác nhận hoàn thành phiếu này?')">
+                        <input type="hidden" name="status" value="{{ request.args.get('status','') }}">
+                        <input type="hidden" name="kw" value="{{ request.args.get('kw','') }}">
+                        <input type="hidden" name="page" value="{{ page }}">
+                        <button type="submit" class="btn btn-success px-4">Hoàn thành</button>
+                    </form>
+
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page > 1 %}
+            <li class="page-item">
+                <a class="page-link"
+                   href="?page={{page-1}}&status={{ request.args.get('status','') }}&kw={{ request.args.get('kw','') }}">&laquo;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">&laquo;</span>
+            </li>
+            {% endif %}
+            {% for i in range(1, pages + 1) %}
+            <li class="page-item {% if page == i %}active{% endif %}">
+                <a class="page-link"
+                   href="?page={{ i }}&status={{ request.args.get('status','') }}&kw={{ request.args.get('kw','') }}">
+                    {{ i }}
+                </a>
+            </li>
+            {% endfor %}
+            {% if page < pages %}
+            <li class="page-item">
+                <a class="page-link"
+                   href="?page={{page+1}}&status={{ request.args.get('status','') }}&kw={{ request.args.get('kw','') }}">&raquo;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">&raquo;</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% else %}
+    <div class="alert alert-info text-center fst-italic">
+        Không có phiếu nào đang sửa chữa.
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

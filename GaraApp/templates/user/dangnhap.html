@@ -1,0 +1,40 @@
+{% extends "layout/base.html"%}
+{% block title %}Đăng nhập{% endblock %}
+
+{% block body %}
+<div class="text-center mb-4">
+    <div class="mb-2 mt-3">
+        <i class="bi bi-shield-lock me-1"></i>
+        <h3 class="fw-bold mt-2">Đăng nhập hệ thống</h3>
+    </div>
+
+    <small class="text-muted small mb-0">
+        Vui lòng nhập thông tin để tiếp tục
+    </small>
+</div>
+<div class="card p-4 sign-in-card">
+    <form action="/dangnhap" class="was-validated" method="post">
+        {% if err_msg %}
+        <div class="alert alert-danger mt-2">{{ err_msg }}</div>
+        {% endif %}
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Tên người dùng</label>
+            <input type="text" class="form-control" id="uname" placeholder="Nhập tên người dùng" name="uname" required>
+            <div class="valid-feedback">Đã có giá trị.</div>
+            <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+        </div>
+        <div class="mb-3">
+            <label for="pwd" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Nhập mật khẩu" name="pswd" required>
+            <div class="valid-feedback">Đã có giá trị.</div>
+            <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+        </div>
+        <button type="submit" class="btn btn-primary dangnhap-button col-12">Đăng nhập</button>
+    </form>
+    <div class="alert alert-info text-center small mt-4 mb-0">
+        <i class="bi bi-info-circle me-1"></i>
+        Chỉ người dùng được cấp quyền mới có thể truy cập hệ thống
+    </div>
+</div>
+
+{% endblock %}

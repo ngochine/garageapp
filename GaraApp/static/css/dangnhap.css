@@ -1,0 +1,20 @@
+.sign-in-card{
+    width: 700px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    border-radius: 15px;
+    background-color: #fafbff;
+    color: #0f2a91;
+}
+
+.dangnhap-button{
+    background-color: #dbdff3;
+    color: #0f2a91;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 600px;
+    display: block;
+    margin: 0 auto
+}

@@ -1,0 +1,120 @@
+{% extends "trangchu_daDangNhap.html" %}
+{% block title %} Tạo phiếu sửa chữa {% endblock %}
+{% block body %}
+
+<div class="container py-4">
+    <h1 class="text-center mb-4 text-uppercase fw-bold">Xác nhận lập phiếu sửa chữa</h1>
+
+    {% if err_msg %}
+    <div class="alert alert-danger">{{err_msg}}</div>
+    {% endif %}
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            Thông tin xe
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered mb-0">
+                <tbody>
+                    <tr>
+                        <th>Mã phiếu tiếp nhận</th>
+                        <td>{{ ctPTN.maPTN }}</td>
+                    </tr>
+                    <tr>
+                        <th>Loại xe</th>
+                        <td>{{ ctPTN.xe.loaiXe }}</td>
+                    </tr>
+                    <tr>
+                        <th>Biển số</th>
+                        <td>{{ ctPTN.xe.bienSoXe }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lỗi mô tả</th>
+                        <td>{{ ctPTN.loiMoTa }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Hạng mục sửa chữa -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            Hạng mục sửa chữa
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã hạng mục</th>
+                        <th>Tên hạng mục</th>
+                        <th>Chi phí (VNĐ)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for h in selected_hangmuc.values() %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ h.maHangMuc }}</td>
+                        <td>{{ h.tenHangMuc }}</td>
+                        <td>{{ "{:,.0f}".format(h.chiPhi|float) }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% if selected_hangmuc|length == 0 %}
+                    <tr>
+                        <td colspan="4" class="text-center">Chưa có hạng mục nào được chọn</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Linh kiện -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            Linh kiện sửa chữa
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã linh kiện</th>
+                        <th>Tên linh kiện</th>
+                        <th>Đơn giá (VNĐ)</th>
+                        <th>Số lượng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lk in selected_linhkien.values() %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ lk.maLinhKien }}</td>
+                        <td>{{ lk.tenLinhKien }}</td>
+                        <td>{{ "{:,.0f}".format(lk.donGia|float) }}</td>
+                        <td>{{lk.soLuong}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% if selected_linhkien|length == 0 %}
+                    <tr>
+                        <td colspan="4" class="text-center">Chưa có linh kiện nào được chọn</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Nút hành động -->
+        <div class="d-flex justify-content-between">
+        <a href="{{ url_for('chon_hang_muc', ptn_id=ctPTN.maPTN) }}" class="btn btn-secondary col-2">
+            Quay lại
+        </a>
+        <form action="{{ url_for('xac_nhan_tao', ptn_id=ctPTN.maPTN) }}" method="POST" class="col-2">
+            <button type="submit" class="btn btn-success col-12">Xác nhận lập phiếu</button>
+        </form>
+        </div>
+</div>
+
+{% endblock %}

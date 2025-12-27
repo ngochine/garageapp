@@ -1,0 +1,198 @@
+[
+  {
+    "maCaLam": 1,
+    "thu": 2,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 2,
+    "thu": 2,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 3,
+    "thu": 2,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 4,
+    "thu": 2,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  },
+  {
+    "maCaLam": 5,
+    "thu": 3,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 6,
+    "thu": 3,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 7,
+    "thu": 3,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 8,
+    "thu": 3,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  },
+  {
+    "maCaLam": 9,
+    "thu": 4,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 10,
+    "thu": 4,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 11,
+    "thu": 4,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 12,
+    "thu": 4,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  },
+  {
+    "maCaLam": 13,
+    "thu": 5,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 14,
+    "thu": 5,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 15,
+    "thu": 5,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 16,
+    "thu": 5,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  },
+  {
+    "maCaLam": 17,
+    "thu": 6,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 18,
+    "thu": 6,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 19,
+    "thu": 6,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 20,
+    "thu": 6,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  },
+  {
+    "maCaLam": 21,
+    "thu": 7,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 22,
+    "thu": 7,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 23,
+    "thu": 7,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 24,
+    "thu": 7,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  },
+  {
+    "maCaLam": 25,
+    "thu": 8,
+    "gioBatDau": "08:00:00",
+    "gioKetThuc": "11:45:00",
+    "tenCa": "Sáng"
+  },
+  {
+    "maCaLam": 26,
+    "thu": 8,
+    "gioBatDau": "11:45:00",
+    "gioKetThuc": "15:30:00",
+    "tenCa": "Trưa"
+  },
+  {
+    "maCaLam": 27,
+    "thu": 8,
+    "gioBatDau": "15:30:00",
+    "gioKetThuc": "19:00:00",
+    "tenCa": "Chiều"
+  },
+  {
+    "maCaLam": 28,
+    "thu": 8,
+    "gioBatDau": "19:00:00",
+    "gioKetThuc": "22:00:00",
+    "tenCa": "Tối"
+  }
+]

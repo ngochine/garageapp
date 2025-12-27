@@ -1,0 +1,103 @@
+{% extends "trangchu_daDangNhap.html" %}
+
+{% block body %}
+<div class="card action-card mx-auto">
+
+    <form class="d-flex mb-3" action="/taikhoan">
+        <button class="btn btn-secondary" type="submit">Quay về</button>
+    </form>
+
+    <form action="/capnhathoso" method="post" enctype="multipart/form-data">
+        {% if success_action %}
+        <div class="alert alert-success mt-2">
+            {{success_action}}
+        </div>
+        {% endif %}
+        {% if err_msg %}
+        <div class="alert alert-danger mt-2">
+            {{ err_msg }}
+        </div>
+        {% endif %}
+
+        <!--        Kiểm tra mật khẩu trước khi thực hiện action-->
+        {% if not success_msg %}
+        <input type="hidden" name="action" value="{{ action }}">
+
+        <div class="mb-3">
+            <label class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" name="pswd-current"
+                   placeholder="Nhập mật khẩu" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Tiếp tục</button>
+        <!--        Kết quả kiểm tra mật khẩu hợp lệ-->
+        {% else %}
+        {% if action == 'delete_avatar' %}
+        {% if not success_action%}
+        <div>
+            <img src="{{ current_user.avatar }}"
+                 class="card-img-top"
+                 style="width:100%; aspect-ratio:1/1; object-fit:cover;">
+
+            <div class="card-body">
+                <h4 class="card-title">Ảnh hồ sơ của bạn</h4>
+            </div>
+
+            <input type="hidden" name="action" value="confirm_delete_avatar">
+            <button class="btn btn-danger mt-3" type="submit">Xóa ảnh hồ sơ</button>
+        </div>
+        {% endif %}
+        {% elif action == 'change_phone'%}
+        {% if not success_action%}
+        <div class="mb-3">
+            <label for="phone-new" class="form-label">Số điện thoại mới</label>
+            <input type="tel" class="form-control" id="phone-new" name="phone-new"
+                   placeholder="Nhập số điện thoại (VD: 0912345678)" pattern="(0[3|5|7|8|9])([0-9]{8})"
+                   required>
+            <div class="valid-feedback">Đã có giá trị.</div>
+            <div class="invalid-feedback">Vui lòng nhập đúng số điện thoại Việt Nam.</div>
+
+            <input type="hidden" name="action" value="confirm_change_phone">
+            <button class="btn btn-danger mt-3" type="submit">Thay đổi</button>
+        </div>
+        {% endif %}
+        {% elif action == 'change_email'%}
+        {% if not success_action%}
+        <div class="mb-3">
+            <label for="email-new" class="form-label">Địa chỉ email mới</label>
+            <input type="email" class="form-control" id="email-new" name="email-new"
+                   placeholder="Nhập địa chỉ email"
+                   required>
+            <div class="valid-feedback">Đã có giá trị.</div>
+
+            <input type="hidden" name="action" value="confirm_change_email">
+            <button class="btn btn-danger mt-3" type="submit">Thay đổi</button>
+        </div>
+        {% endif %}
+        {% elif action == 'change_username'%}
+        {% if not success_action%}
+        <div class="mb-3 mt-3">
+            <label for="uname" class="form-label">Tên người dùng mới</label>
+            <input type="text" class="form-control" id="uname" placeholder="Nhập tên người dùng" name="uname" required>
+            <div class="valid-feedback">Đã có giá trị.</div>
+            <div class="invalid-feedback">Vui lòng điền đầy đủ thông tin.</div>
+
+            <input type="hidden" name="action" value="confirm_change_username">
+            <button class="btn btn-danger mt-3" type="submit">Thay đổi</button>
+        </div>
+        {% endif %}
+        {% elif action == 'change_avatar'%}
+        {% if not success_action%}
+        <div class="mb-3 mt-3">
+            <label for="avt" class="form-label">Ảnh đại diện mới</label>
+            <input type="file" class="form-control" id="avt" name="new-avt" required>
+
+            <input type="hidden" name="action" value="confirm_change_avatar">
+            <button class="btn btn-danger mt-3" type="submit">Thay đổi</button>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

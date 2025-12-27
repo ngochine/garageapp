@@ -1,0 +1,156 @@
+{% extends "trangchu_daDangNhap.html"%}
+{% block title %}Danh sách hoá đơn đã tạo{% endblock %}
+{% block body %}
+
+<div class="m-5">
+
+    {% if thanhcong %}
+    <div class="alert alert-success">
+        Đã gửi yêu cầu, đang chờ xử lý.
+    </div>
+    {% elif thatbai %}
+    <div class="alert alert-danger">
+        Gửi yêu cầu thất bại, vui lòng thử lại.
+    </div>
+    {% endif %}
+
+    <div class="row justify-content-center mb-3">
+        <h2 class="text-center text-warning text-uppercase m-3 mb-5">
+            Danh sách hoá đơn đã tạo
+        </h2>
+
+        <div class="col-12 col-md-11 col-lg-9 col-xl-8">
+
+            <form method="get" class="row justify-content-center mb-4">
+                <input type="hidden" name="loaihoadon" value="{{loaihoadon}}">
+
+                <div class="col-md-4 col-12 mb-2">
+                    <input class="form-control" name="tukhoa" value="{{tukhoa}}"
+                           placeholder="Nhập mã hóa đơn hoặc tên khách hàng">
+                </div>
+
+                <div class="col-md-3 col-12 mb-2">
+                    <select class="form-select" name="kieutim">
+                        <option value="maHoaDon" {% if kieutim=='maHoaDon' %}selected{% endif %}>
+                            Mã hóa đơn
+                        </option>
+                        <option value="tenKH" {% if kieutim=='tenKH' %}selected{% endif %}>
+                            Tên khách hàng
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 col-12 mb-2">
+                    <button class="btn w-100" style="background:#e01a4f; color:#fff">
+                        Tìm kiếm
+                    </button>
+                </div>
+            </form>
+
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+
+                {% set filters = [
+                    ('all', 'Tất cả', tongTatCa),
+                    ('paid', 'Đã thanh toán', tongDathanhtoan),
+                    ('requested', 'Đã yêu cầu', tongDaYeuCau),
+                    ('refund', 'Đã xử lý', tongDahoantien),
+                    ('rejected', 'Đã từ chối', tongDaTuChoi)
+                ] %}
+
+                {% for value, label, total in filters %}
+                <form method="get" action="/danhsachhoadon">
+                    <input type="hidden" name="loaihoadon" value="{{ value }}">
+                    {% if tukhoa %}
+                    <input type="hidden" name="tukhoa" value="{{ tukhoa }}">
+                    <input type="hidden" name="kieutim" value="{{ kieutim }}">
+                    {% endif %}
+                    <button class="btn btn-warning {% if not timkiem and loaihoadon == value %}active{% endif %}">
+                        {{ label }} <span class="badge bg-danger">{{ total }}</span>
+                    </button>
+                </form>
+                {% endfor %}
+            </div>
+
+            <!-- Chi tiết yêu cầu -->
+            {% if not dsHD_page %}
+            <div class="alert alert-warning text-center rounded-4 shadow-sm">
+                ❗ Không có hóa đơn nào
+            </div>
+            {% endif %}
+
+            {% for h in dsHD_page %}
+            <div class="card shadow-sm rounded-4 mb-4 border-0">
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold text-primary mb-0">
+                            Hóa đơn #{{ h.maHoaDon }}
+                        </h5>
+
+                        <span class="badge
+                            {% if h.trangThai == 'Đã thanh toán' %}bg-success
+                            {% elif h.trangThai == 'Đã yêu cầu' %}bg-warning text-dark
+                            {% elif h.trangThai == 'Đã xử lý' %}bg-info
+                            {% elif h.trangThai == 'Đã từ chối' %}bg-danger
+                            {% else %}bg-secondary{% endif %}">
+                            {{ h.trangThai }}
+                        </span>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Thu ngân:</strong> {{ h.maTaiKhoan }}</p>
+                            <p class="mb-1"><strong>Ngày tạo:</strong> {{ h.ngayTaoHoaDon }}</p>
+                            <p class="mb-1"><strong>Tổng tiền:</strong>
+                                <span class="text-danger fw-bold">{{ h.tongTien }}</span>
+                            </p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p class="mb-1"><strong>Khách hàng:</strong>
+                                {{ h.phieusuachua.phieuTiepNhan.khachHang.ho }}
+                                {{ h.phieusuachua.phieuTiepNhan.khachHang.ten }}
+                            </p>
+                            <p class="mb-1"><strong>SĐT:</strong>
+                                {{ h.phieusuachua.phieuTiepNhan.khachHang.SDT }}
+                            </p>
+                        </div>
+                    </div>
+
+                    {% if h.trangThai == "Đã thanh toán" %}
+                    <div class="text-end mt-3">
+                        <form method="get" action="/danhsachhoadon/hoantien">
+                            <input type="hidden" name="maHoaDon" value="{{ h.maHoaDon }}">
+                            <button class="btn btn-danger px-4">
+                                Yêu cầu hoàn tiền
+                            </button>
+                        </form>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- Phân trang -->
+            {% if pages %}
+            <ul class="pagination mt-3 justify-content-center">
+                <li class="page-item {% if page == 1 %}disabled{% endif %} "><a class="page-link"
+                                                                                href="/danhsachhoadon?page={{ page - 1 }}&loaihoadon={{ loaihoadon }}{% if tukhoa %}&tukhoa={{ tukhoa }}{% endif %}{% if kieutim %}&kieutim={{ kieutim }}{% endif %} ">Trước</a>
+                </li>
+                {% for i in range(1, pages + 1) %}
+                <li class="page-item {% if i == page %}active{% endif %} "><a class="page-link"
+                                                                              href="/danhsachhoadon?page={{i}}&loaihoadon={{ loaihoadon }}{% if tukhoa %}&tukhoa={{ tukhoa }}{% endif %}{% if kieutim %}&kieutim={{ kieutim }}{% endif %} ">{{i}}</a>
+                </li>
+                {% endfor %}
+                <li class="page-item {% if page == pages %}disabled{% endif %} "><a class="page-link"
+                                                                                    href="/danhsachhoadon?page={{ page + 1 }}&loaihoadon={{ loaihoadon }}{% if tukhoa %}&tukhoa={{ tukhoa }}{% endif %}{% if kieutim %}&kieutim={{ kieutim }}{% endif %}">Sau</a>
+                </li>
+            </ul>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

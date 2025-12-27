@@ -1,0 +1,198 @@
+{% extends "trangchu_daDangNhap.html"%}
+
+
+{% block body%}
+
+
+<div class="hoadon-phieusuachua mt-3 mb-3">
+    {% if thongbao %}
+    <div class="alert alert-success mt-2">{{ thongbao }}</div>
+    {% endif %}
+    <div class="control mt-3">
+        {% if not thongbao %}
+        <form class="d-flex " action="/taohoadon" method="get">
+            <input type="hidden" name="maPSC" value="{{ maPSC }}">
+            <button class="btn btn-primary quayve-button" type="submit">Quay về</button>
+        </form>
+        <form class="d-flex " action="/xulythanhtoan+thongbao" method="post">
+            <input type="hidden" name="maPSC" value="{{ maPSC }}">
+            <input type="hidden" name="tongHoaDon" value="{{ tongHoaDon }}">
+            <input type="hidden" name="soTien" value="{{ soTien }}">
+            <input type="hidden" name="tienThua" value="{{ tienThua }}">
+            <input type="hidden" name="giaTriThue" value="{{ giaTriThue }}">
+            <input type="hidden" name="ngayThanhToan" value="{{ ngayThanhToan }}">
+
+            <button class="btn btn-primary xulythanhtoan-button" type="submit">Xuất hóa đơn</button>
+        </form>
+        {% elif thongbao %}
+        <form class="d-flex " action="/chothanhtoan" >
+            <button class="btn btn-primary quayve-button" type="submit">Quay về</button>
+        </form>
+        {% endif %}
+    </div>
+
+    {% if thongbao%}
+    <div class="card p-4  hoadon-form">
+        <div class="container mt-3">
+            <h3>THÔNG TIN HÓA ĐƠN</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Thông tin</th>
+                    <th>Giá trị</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>Mã hóa đơn</td>
+                    <td>{{maHoaDon}}</td>
+                </tr>
+
+                <tr>
+                    <td>Ngày thanh toán</td>
+                    <td>{{ngayThanhToan}}</td>
+                </tr>
+                <tr>
+                    <td>Mã phiếu sửa chữa</td>
+                    <td>{{maPSC}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Thông tin khách hàng</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng</td>
+                    <td>{{kh.ho}} {{kh.ten}}</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>{{kh.SDT}}</td>
+                </tr>
+                <!--                Hang muc-->
+
+                <tr>
+                    <td style="font-weight: bold;">Chi tiết hạng mục sửa chữa</td>
+                    <td></td>
+                </tr>
+                {% for h in ds_hangmuc %}
+                <tr>
+                    <td>{{h.tenHangMuc}}</td>
+                    <td>{{h.chiPhiHienHanh}}</td>
+                </tr>
+                {% endfor %}
+
+                <!--                Linh kien-->
+                <tr>
+                    <td style="font-weight: bold;">Chi tiết linh kiện sửa chữa</td>
+                    <td></td>
+                </tr>
+                {% for l in ds_linhkien %}
+                <tr>
+                    <td>(x{{l.soLuong}}) {{l.tenLinhKien}}</td>
+                    <td>{{l.donGiaHienHanh}}</td>
+                </tr>
+                {% endfor %}
+                <!--                Thue-->
+                <tr>
+                    <td style="font-weight: bold;">Thuế %</td>
+                    <td>{{giaTriThue}}</td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight: bold; color: red; font-size: 20px;">Tổng hóa đơn</td>
+                    <td>{{tongHoaDon}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="card p-4  hoadon-form">
+        <div class="container mt-3">
+            <h3>THÔNG TIN HÓA ĐƠN</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Thông tin</th>
+                    <th>Giá trị</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ngày thanh toán</td>
+                    <td>{{ngayThanhToan}}</td>
+                </tr>
+                <tr>
+                    <td>Mã phiếu sửa chữa</td>
+                    <td>{{maPSC}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Thông tin khách hàng</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng</td>
+                    <td>{{hoKhachHang}} {{tenKhachHang}}</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>{{sdtKhachHang}}</td>
+                </tr>
+                <!--                Hang muc-->
+
+                <tr>
+                    <td style="font-weight: bold;">Chi tiết hạng mục sửa chữa</td>
+                    <td></td>
+                </tr>
+                {% for h in ds_hangmuc %}
+                <tr>
+                    <td>{{h.tenHangMuc}}</td>
+                    <td>{{h.chiPhiHienHanh}}</td>
+                </tr>
+                {% endfor %}
+
+                <!--                Linh kien-->
+                <tr>
+                    <td style="font-weight: bold;">Chi tiết linh kiện sửa chữa</td>
+                    <td></td>
+                </tr>
+                {% for l in ds_linhkien %}
+                <tr>
+                    <td>(x{{l.soLuong}}) {{l.tenLinhKien}}</td>
+                    <td>{{l.donGiaHienHanh}}</td>
+                </tr>
+                {% endfor %}
+                <!--                Thue-->
+                <tr>
+                    <td style="font-weight: bold;">Thuế %</td>
+                    <td>{{giaTriThue}}</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>Tiền nhận vào</td>
+                    <td>{{soTien}}</td>
+                </tr>
+                <tr>
+                    <td>Tổng hóa đơn</td>
+                    <td>{{tongHoaDon}}</td>
+                </tr>
+                <tr>
+                    <td>Tiền thừa</td>
+                    <td>{{tienThua}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

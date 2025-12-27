@@ -1,0 +1,134 @@
+[
+  {
+    "maYeuCau": 1,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Đang sửa xe khách hàng Nguyễn Văn A, thiếu bộ phanh đĩa trước",
+    "ghiChu": "Cần gấp trong ngày để hoàn thành phiếu sửa chữa",
+    "trangThai": "CHUA_XU_LY",
+    "thoiGianTao": "2024-12-15T09:30:00",
+    "thoiGianXuLy": null,
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": null
+  },
+  {
+    "maYeuCau": 2,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Thiếu dầu động cơ tổng hợp 5W-30 để thay cho xe Toyota Camry",
+    "ghiChu": "Khách hàng đang chờ, xe đã vào garage",
+    "trangThai": "DA_CHAP_NHAN",
+    "thoiGianTao": "2024-12-14T14:20:00",
+    "thoiGianXuLy": "2024-12-14T15:00:00",
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 3,
+    "loaiYeuCau": "SU_CO_THANH_TOAN",
+    "noiDung": "Khách hàng thanh toán bằng thẻ nhưng máy POS báo lỗi kết nối",
+    "ghiChu": "Khách hàng muốn thanh toán thẻ, không mang đủ tiền mặt",
+    "trangThai": "DA_CHAP_NHAN",
+    "thoiGianTao": "2024-12-15T16:45:00",
+    "thoiGianXuLy": "2024-12-15T17:00:00",
+    "maTaiKhoanYeuCau": 4,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 4,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Cần lọc gió động cơ và lọc dầu cho xe Honda City",
+    "ghiChu": "Phụ tùng cũ đã hỏng hoàn toàn",
+    "trangThai": "DA_CHAP_NHAN",
+    "thoiGianTao": "2024-12-13T10:15:00",
+    "thoiGianXuLy": "2024-12-13T11:30:00",
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 5,
+    "loaiYeuCau": "SU_CO_THANH_TOAN",
+    "noiDung": "Số tiền trên hóa đơn và hệ thống không khớp",
+    "ghiChu": "Khách hàng phản ánh số tiền cao hơn báo giá ban đầu",
+    "trangThai": "DA_TU_CHOI",
+    "thoiGianTao": "2024-12-12T11:20:00",
+    "thoiGianXuLy": "2024-12-12T13:45:00",
+    "maTaiKhoanYeuCau": 4,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 6,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Hết bugi đánh lửa cho xe Mazda 3",
+    "ghiChu": "Cần 4 cái, kho chỉ còn 1",
+    "trangThai": "CHUA_XU_LY",
+    "thoiGianTao": "2024-12-16T08:45:00",
+    "thoiGianXuLy": null,
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": null
+  },
+  {
+    "maYeuCau": 7,
+    "loaiYeuCau": "SU_CO_THANH_TOAN",
+    "noiDung": "Khách hàng yêu cầu hủy hóa đơn đã thanh toán",
+    "ghiChu": "Khách hàng muốn đổi sang thanh toán công ty để được khấu trừ thuế",
+    "trangThai": "CHUA_XU_LY",
+    "thoiGianTao": "2024-12-16T10:30:00",
+    "thoiGianXuLy": null,
+    "maTaiKhoanYeuCau": 4,
+    "maTaiKhoanXuLy": null
+  },
+  {
+    "maYeuCau": 8,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Thiếu bộ gạt mưa cho xe Hyundai Accent",
+    "ghiChu": "Gạt mưa cũ đã mòn hết cao su",
+    "trangThai": "DA_CHAP_NHAN",
+    "thoiGianTao": "2024-12-11T13:00:00",
+    "thoiGianXuLy": "2024-12-11T14:15:00",
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 9,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Cần dây curoa phát điện cho xe Ford Ranger",
+    "ghiChu": "Dây cũ bị đứt, cần thay ngay",
+    "trangThai": "CHUA_XU_LY",
+    "thoiGianTao": "2024-12-16T11:15:00",
+    "thoiGianXuLy": null,
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": null
+  },
+  {
+    "maYeuCau": 10,
+    "loaiYeuCau": "SU_CO_THANH_TOAN",
+    "noiDung": "Lỗi in hóa đơn, máy in không phản hồi",
+    "ghiChu": "Đã thanh toán nhưng không in được hóa đơn cho khách",
+    "trangThai": "DA_CHAP_NHAN",
+    "thoiGianTao": "2024-12-15T15:20:00",
+    "thoiGianXuLy": "2024-12-15T15:35:00",
+    "maTaiKhoanYeuCau": 4,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 11,
+    "loaiYeuCau": "BAO_THIEU_LINH_KIEN",
+    "noiDung": "Hết ắc quy 12V 60Ah cho xe Kia Morning",
+    "ghiChu": "Ắc quy cũ đã hết tuổi thọ, cần thay mới",
+    "trangThai": "DA_CHAP_NHAN",
+    "thoiGianTao": "2024-12-10T09:00:00",
+    "thoiGianXuLy": "2024-12-10T10:30:00",
+    "maTaiKhoanYeuCau": 3,
+    "maTaiKhoanXuLy": 1
+  },
+  {
+    "maYeuCau": 12,
+    "loaiYeuCau": "SU_CO_THANH_TOAN",
+    "noiDung": "Giao dịch chuyển khoản chưa vào tài khoản garage",
+    "ghiChu": "Khách đã chuyển khoản từ 30 phút trước nhưng chưa thấy tiền về",
+    "trangThai": "CHUA_XU_LY",
+    "thoiGianTao": "2024-12-16T14:00:00",
+    "thoiGianXuLy": null,
+    "maTaiKhoanYeuCau": 4,
+    "maTaiKhoanXuLy": null
+  }
+]

@@ -1,0 +1,68 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container-fluid mt-4">
+    <div class="text-center mb-5">
+        <h3 class="fw-bold" style="color: #6f42c1">
+            BIỂU ĐỒ LỖI THƯỜNG GẶP
+        </h3>
+        <p class="text-muted mb-2">
+            Biểu đồ lỗi thường gặp trong lúc sửa chữa
+        </p>
+        <hr class="mx-auto" style="width: 180px; border-top: 3px solid #6f42c1;">
+    </div>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <canvas id="myChart" height="100"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function drawChart(ctx, myLabel, myData) {
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: myLabel,
+            datasets: [{
+                label: 'Lỗi',
+                data: myData,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+              }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+window.onload = function () {
+    let myLabel = [];
+    let myData = [];
+
+     {% for s in loi_stats %}
+        myLabel.push('{{ s[0] }}');
+        myData.push({{ s[1] }});
+    {% endfor %}
+
+    const ctx = document.getElementById('myChart');
+    drawChart(ctx, myLabel, myData);
+};
+</script>
+
+{% endblock %}

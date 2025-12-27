@@ -1,0 +1,112 @@
+[
+  {
+    "ho": "Nguyễn Văn",
+    "ten": "An",
+    "SDT": "0901234567",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1990-05-15",
+    "CCCD": "001090012345",
+    "email": "nguyenvanan@gmail.com",
+    "maDiaChi": 1,
+    "luong": 15000000.00
+  },
+  {
+    "ho": "Trần Thị",
+    "ten": "Bình",
+    "SDT": "0912345678",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1992-08-20",
+    "CCCD": "001092023456",
+    "email": "tranthibinh@gmail.com",
+    "maDiaChi": 2,
+    "luong": 18000000.00
+  },
+  {
+    "ho": "Lê Minh",
+    "ten": "Cường",
+    "SDT": "0923456789",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1988-03-10",
+    "CCCD": "001088034567",
+    "email": "leminhcuong@gmail.com",
+    "maDiaChi": 3,
+    "luong": 20000000.00
+  },
+  {
+    "ho": "Phạm Thị",
+    "ten": "Dung",
+    "SDT": "0934567890",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1995-12-25",
+    "CCCD": "001095125678",
+    "email": "phamthidung@gmail.com",
+    "maDiaChi": 4,
+    "luong": 12000000.00
+  },
+  {
+    "ho": "Hoàng Văn",
+    "ten": "Em",
+    "SDT": "0945678901",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1991-07-18",
+    "CCCD": "001091076789",
+    "email": "hoangvanem@gmail.com",
+    "maDiaChi": 5,
+    "luong": 16000000.00
+  },
+  {
+    "ho": "Vũ Thị",
+    "ten": "Phương",
+    "SDT": "0956789012",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1993-11-05",
+    "CCCD": "001093117890",
+    "email": "vuthiphuong@gmail.com",
+    "maDiaChi": 6,
+    "luong": 14000000.00
+  },
+  {
+    "ho": "Đặng Minh",
+    "ten": "Giang",
+    "SDT": "0967890123",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1989-02-14",
+    "CCCD": "001089028901",
+    "email": "dangminhgiang@gmail.com",
+    "maDiaChi": 7,
+    "luong": 17000000.00
+  },
+  {
+    "ho": "Bùi Thị",
+    "ten": "Hoa",
+    "SDT": "0978901234",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1994-09-30",
+    "CCCD": "001094099012",
+    "email": "buithihoa@gmail.com",
+    "maDiaChi": 8,
+    "luong": 13000000.00
+  },
+  {
+    "ho": "Ngô Văn",
+    "ten": "Inh",
+    "SDT": "0989012345",
+    "gioiTinh": "Nam",
+    "ngaySinh": "1987-06-22",
+    "CCCD": "001087060123",
+    "email": "ngovanhinh@gmail.com",
+    "maDiaChi": 9,
+    "luong": 19000000.00
+  },
+  {
+    "ho": "Lý Thị",
+    "ten": "Kim",
+    "SDT": "0990123456",
+    "gioiTinh": "Nữ",
+    "ngaySinh": "1996-04-12",
+    "CCCD": "001096041234",
+    "email": "lythikim@gmail.com",
+    "maDiaChi": 10,
+    "luong": 11000000.00
+  }
+]

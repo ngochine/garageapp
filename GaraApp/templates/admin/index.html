@@ -1,0 +1,54 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<link rel="icon" href="https://res.cloudinary.com/dvfuzolim/image/upload/v1766407454/download_aw7fn2.png">
+<div class="container mt-4">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">HỆ THỐNG QUẢN TRỊ GARA HONTRI</h2>
+        <p class="text-muted fs-6">Quản lý linh kiện – hạng mục sửa chữa – quy định vận hành hệ thống</p>
+        <hr class="w-50 mx-auto">
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Hạng mục sửa chữa</h5>
+                    <p class="text-muted">Quản lý các hạng mục sửa chữa, chi phí dịch vụ và cấu trúc công việc</p>
+                    <a href="#" class="btn btn-outline-info"> Quản lý hạng mục</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Linh kiện sửa chữa</h5>
+                    <p class="text-muted">Theo dõi số lượng tồn kho, đơn giá và hình ảnh linh kiện</p>
+                    <a href="/admin/linhkien/" class="btn btn-outline-success">Quản lý linh kiện</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Quy định hệ thống</h5>
+                    <p class="text-muted">Điều chỉnh thuế VAT, số xe tiếp nhận/ngày và các quy định vận hành</p>
+                    <a href="#" class="btn btn-outline-warning">Quản lý quy định</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mt-5">
+        <a href="/admin/myloginview/" class="btn btn-primary px-4">Đăng nhập ngay</a>
+    </div>
+
+<!--    footer-->
+    <div class="mt-5">
+        {% include "layout/footer.html" %}
+    </div>
+
+</div>
+{% endblock %}

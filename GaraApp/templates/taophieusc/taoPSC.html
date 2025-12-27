@@ -1,0 +1,183 @@
+{% extends "trangchu_daDangNhap.html" %}
+{% block title%} Tạo phiếu sửa chữa {%endblock%}
+
+{% block body %}
+<div class="d-flex flex-column">
+    <div class="d-flex flex-column mb-3 ms-3 justify-content-around">
+        <div>
+            <div class="d-flex flex-row">
+                <div class="col-md-4 col-12 container mt-3 flex justify-content-around">
+                    <h3 class="text-uppercase fw-bolder">Tạo phiếu sửa chữa</h3>
+                    <p>Vui lòng chọn xe cần sửa chữa để tạo phiếu sửa chữa mới.</p>
+                    <button type="button" class="btn col-3" style="background-color: #06908F; color: #ffffff">Hướng
+                        dẫn
+                    </button>
+                    <a type="button" href="/trangchu/dangnhap" class="btn col-3"
+                       style="background-color: #8D0801; color: #ffffff">Huỷ tạo
+                        phiếu
+                    </a>
+                </div>
+                <h1 class="container text-center m-5 fw-bold">Chọn xe sửa chữa</h1>
+            </div>
+            <div class="col-8 ms-auto">
+                <form class="d-flex gap-3" method="get" action="/taoPSC">
+                    <input type="hidden" name="ptn_id" value="{{ request.args.get('ptn_id','') }}">
+                    <select class="form-select w-auto" name="loai_khach">
+                        <option value="">Lọc loại khách hàng</option>
+                        <option value="VIP" {% if request.args.get(
+                        'loai_khach','') == 'VIP' %} selected {% endif %}> VIP</option>
+                        <option value="Thường" {% if request.args.get(
+                        'loai_khach','') == 'Thường' %} selected {% endif %}> Thường</option>
+                    </select>
+
+                    <select class="form-select w-auto" name="loai_xe">
+                        <option value="">Lọc loại xe</option>
+                        {% for l in loaiXe%}
+                        <option value="{{l.tenLoaiXe}}" {% if request.args.get(
+                        'loai_xe','') == l.tenLoaiXe %} selected {% endif %}>{{l.tenLoaiXe}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <select class="form-select w-auto" name="sap_xep">
+                        <option value="">Sắp xếp theo ngày</option>
+                        <option value="DESC" {% if request.args.get(
+                        'sap_xep','') == "DESC" %} selected {% endif %}>Mới nhất</option>
+                        <option value="ASC" {% if request.args.get(
+                        'sap_xep','') == "ASC" %} selected {% endif %}>Cũ nhất</option>
+                    </select>
+
+                    <button type="submit" class="btn"
+                            style="width: 100px; background-color: #06908F; color: #ffffff">
+                        Tìm kiếm
+                    </button>
+                </form>
+            </div>
+
+
+            <!--    Thông tin và phiếu-->
+            <div class="d-flex justify-content-between ">
+                <div style="background-color: rgba(128, 128, 128, 0.2)"
+                     class="col-3 border border-light rounded-3 shadow p-4 m-3">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th colspan="2" class="text-center">Thông tin xe đã chọn</th>
+                        </tr>
+                        </thead>
+                        <tbody class="xeinfo">
+                        <tr>
+                            <td>Mã PTN:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ ctPTN.maPTN }}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mã khách hàng:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ ctPTN.khachHang.id }}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Loại khách hàng:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ ctPTN.khachHang.loaiKhachHang }}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Loại xe:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ctPTN.xe.loaiXe.tenLoaiXe}}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Biển số xe:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ ctPTN.xe.bienSoXe }}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lỗi mô tả:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ ctPTN.loiMoTa }}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ngày lập phiếu tiếp nhận:</td>
+                            <td>
+                                {% if ctPTN %}
+                                {{ ctPTN.ngayLap }}
+                                {%endif%}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-8 border border-light rounded-3 shadow p-3 m-3 overflow-auto rounded text-center"
+                     style="max-height: 500px">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Biển số</th>
+                            <th>Loại xe</th>
+                            <th>Mô tả ban đầu</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {%for p in dsPTN%}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{p.xe.bienSoXe}}</td>
+                            <td>{{p.xe.loaiXe.tenLoaiXe}}</td>
+                            <td>{{p.loiMoTa}}</td>
+                            <td>Đang chờ sửa chữa</td>
+
+                            <td>
+                                {% if ctPTN and ctPTN.maPTN == p.maPTN %}
+                                <a href="{{ url_for('tao_phieu_sua_chua',loai_khach=loai_khach,loai_xe=loai_xe,sap_xep=sap_xep) }}" class="btn btn-danger"
+                                   style="width: 100px">Bỏ
+                                    chọn</a>
+                                {% else %}
+                                <a href="{{ url_for('tao_phieu_sua_chua', ptn_id=p.maPTN,loai_khach=loai_khach,loai_xe=loai_xe,sap_xep=sap_xep) }}"
+                                   class="btn"
+                                   style="width: 100px; background-color: #0892A5; color: #ffffff">
+                                    Chọn
+                                </a>
+
+                                {% endif %}
+                            </td>
+
+                        </tr>
+                        {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="ms-auto">
+            {% if ctPTN %}
+            <a href="/taoPSC/ptn_id={{ctPTN.maPTN}}/chonHangMuc" type="button" class="btn m-5 mt-3"
+               style="width: 100px; background-color: #153B50; color: #ffffff"> Tiếp tục </a>
+            {% else %}
+            <a type="button" class="btn m-5 mt-3"
+               style="width: 100px; background-color: #cccccc; color: #ffffff">Tiếp tục</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,144 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<div class="row justify-content-between">
+    <form method="get" class="col-md-3 col-12 ms-4 mt-4 p-4">
+        <input type="hidden" name="status" value="{{ request.args.get('status','') }}">
+        <button type="submit" name="loai" value=""
+                class="btn col-12 mb-2
+                {% if request.args.get('loai','') == '' %} btn-warning {% else %} btn-outline-warning {% endif %}">
+            Tất cả
+        </button>
+        <button type="submit" name="loai" value="BAO_THIEU_LINH_KIEN"
+                class="btn col-12 mb-2
+                {% if request.args.get('loai','').__eq__('BAO_THIEU_LINH_KIEN') %} btn-info {% else %} btn-outline-info {% endif %}">
+            Yêu cầu linh kiện
+        </button>
+        <button type="submit" name="loai" value="SU_CO_THANH_TOAN"
+                class="btn col-12
+                {% if request.args.get('loai','').__eq__('SU_CO_THANH_TOAN') %} btn-success {% else %} btn-outline-success {% endif %}">
+            Yêu cầu hoá đơn
+        </button>
+    </form>
+
+    <div class="col-md-9 col-12">
+        <form method="get" class="row justify-content-between col-12 mt-4 p-4">
+            <input type="hidden" name="loai" value="{{ request.args.get('loai','') }}">
+            <button type="submit" value="" name="status" class="btn col-3 me-2
+                {% if request.args.get('status','').__eq__('') %} btn-primary {% endif %}">
+                Tất cả
+                <sup class="bg-warning px-1 border rounded">{{count_tatca}}</sup>
+            </button>
+            <button type="submit" value={{YeuCauStatus.CHUA_XU_LY.name}} name="status" class="btn col-3 me-2
+                {% if request.args.get('status','').__eq__(YeuCauStatus.CHUA_XU_LY.name) %} btn-primary {% endif %}">
+                Chưa xử lý
+                <sup class="bg-warning px-1 border rounded">{{count_chua_xuly}}</sup>
+            </button>
+            <button type="submit" value={{YeuCauStatus.DA_CHAP_NHAN.name}} name="status" class="btn col-3 me-2
+                {% if request.args.get('status','').__eq__(YeuCauStatus.DA_CHAP_NHAN.name) %} btn-primary {% endif %}">
+                Đã xử lý
+                <sup class="bg-warning px-1 border rounded">{{count_da_xuly}}</sup>
+            </button>
+            <button type="submit" value={{YeuCauStatus.DA_TU_CHOI.name}} name="status" class="btn col-3
+                {% if request.args.get('status','').__eq__(YeuCauStatus.DA_TU_CHOI.name) %} btn-primary {% endif %}">
+                Đã từ chối
+                <sup class="bg-warning px-1 border rounded">{{count_da_tuchoi}}</sup>
+            </button>
+        </form>
+        {% if not yeucaus%}
+        <p class="text-center text-secondary mt-3" style="font-style: italic !important">Hiện không có yêu cầu nào</p>
+        {% endif %}
+        {% for yc in yeucaus %}
+        <div class="card border border-light rounded-3 shadow p-4 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-9 col-12">
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <td class="fw-bold">Nội dung báo thiếu</td>
+                            <td>{{yc.noiDung}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Mã nhân viên báo thiếu</td>
+                            <td>{{yc.maTaiKhoanYeuCau}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ghi chú</td>
+                            <td>{% if yc.ghiChu %} {{yc.ghiChu}} {% else %} Không có {% endif %}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row text-center mt-3">
+                        <div class="col-4">
+                            <p class="mb-0">Thời gian</p>
+                            <small>{{yc.thoiGianTao.strftime("%H:%M:%S")}}</small>
+                        </div>
+                        <div class="col-4">
+                            <p class="mb-0">Ngày gửi</p>
+                            <small>{{yc.thoiGianTao.strftime('%d/%m/%Y')}}</small>
+                        </div>
+                        <div class="col-4">
+                            <p class="mb-0">Trạng thái</p>
+                            <small>{{yc.trangThai.name}}</small>
+                        </div>
+                    </div>
+                </div>
+                {% if yc.trangThai == YeuCauStatus.CHUA_XU_LY %}
+                <div class="col-md-3 col-12 d-flex flex-column align-items-center justify-content-center">
+                    <form method="post" class="w-100 text-center" onsubmit="return confirm('Bạn có chắc chắn?')">
+                        <input type="hidden" name="yc_id" value="{{ yc.maYeuCau }}">
+                        <button type="submit" name="action" value="DA_CHAP_NHAN" class="btn btn-outline-success col-6 mb-2">
+                            Xử lý
+                        </button>
+                        <button type="submit" name="action" value="DA_TU_CHOI" class="btn btn-outline-danger col-6">
+                            Từ chối
+                        </button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        <nav class="mt-3">
+            <ul class="pagination justify-content-center">
+                {% if page > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page-1}}">&laquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo;</span>
+                </li>
+                {% endif %}
+
+                {% for i in range(1, pages+1) %}
+                {% if page == i %}
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{i}}">{{i}}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{i}}">{{i}}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+                {% if page < pages %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page+1}}">&raquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">&raquo;</span>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!--    footer-->
+<div class="mt-5">
+    {% include "layout/footer.html" %}
+</div>
+{% endblock %}

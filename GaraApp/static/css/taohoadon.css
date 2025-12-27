@@ -1,0 +1,56 @@
+.quayve-button{
+    width: 200px;
+    margin-left: 50px;
+    background-color: #e01a4f !important;
+    border-radius: 5px;
+    border-color: #e01a4f;
+}
+
+.xulythanhtoan-button {
+    width: 200px;
+    margin-right: 50px;
+    background-color: #e01a4f !important;
+    border-radius: 5px;
+    border-color: #e01a4f !important;
+}
+
+.phieusuachua-form{
+    height: auto;
+    margin: 0 100px ;
+    border-radius: 15px;
+    background-color: #ffebeb !important;
+}
+.input-money{
+    border-radius: 15px;
+    border-color: red;
+    background-color: #fffdf1 !important;
+    height: auto;
+    margin: 0 100px ;
+    margin-bottom: 30px;
+}
+
+.input-money label{
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: block;
+}
+.input-money input{
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        width: 100%;
+        font-size: 16px;
+}
+
+.xacnhan-button{
+    background-color: #fca17d !important;
+    border-radius: 10px;
+    border-color: #fca17d !important;
+}
+
+.hoadon-form{
+    height: auto;
+    margin: 0 100px ;
+    border-radius: 15px;
+    background-color: white !important;
+}

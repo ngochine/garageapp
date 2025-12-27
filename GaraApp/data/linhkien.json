@@ -1,0 +1,52 @@
+[
+  {
+    "tenLinhKien": "Dầu động cơ 5W-30",
+    "donGia": 180000,
+    "soLuongTon": 50
+  },
+  {
+    "tenLinhKien": "Lọc dầu",
+    "donGia": 85000,
+    "soLuongTon": 80
+  },
+  {
+    "tenLinhKien": "Lọc gió",
+    "donGia": 120000,
+    "soLuongTon": 60
+  },
+  {
+    "tenLinhKien": "Má phanh trước",
+    "donGia": 450000,
+    "soLuongTon": 40
+  },
+  {
+    "tenLinhKien": "Má phanh sau",
+    "donGia": 380000,
+    "soLuongTon": 35
+  },
+  {
+    "tenLinhKien": "Bóng đèn LED H4",
+    "donGia": 250000,
+    "soLuongTon": 100
+  },
+  {
+    "tenLinhKien": "Gạt mưa",
+    "donGia": 150000,
+    "soLuongTon": 70
+  },
+  {
+    "tenLinhKien": "Bugi",
+    "donGia": 80000,
+    "soLuongTon": 120
+  },
+  {
+    "tenLinhKien": "Ắc quy 12V 60Ah",
+    "donGia": 1200000,
+    "soLuongTon": 25
+  },
+  {
+    "tenLinhKien": "Dây curoa",
+    "donGia": 320000,
+    "soLuongTon": 45
+  }
+]

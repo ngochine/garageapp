@@ -1,0 +1,75 @@
+{% extends "trangchu_daDangNhap.html"%}
+
+{% block title %}Tạo phiếu tiêếp nhận{% endblock %}
+
+{% block body%}
+<div class="xacnhan-phieutiepnhan">
+    {% if thongbao %}
+    <div class="alert alert-success mt-2">{{ thongbao }}</div>
+    {% endif %}
+
+    <div class="control">
+
+        <form class="d-flex quayve-control" action="/lapphieutiepnhan">
+            {% if thongbao %}
+            <button class="btn btn-primary tieptheo-button" type="submit">Tiếp tục lập phiếu</button>
+            {% else %}
+            <button class="btn btn-primary tieptheo-button" type="submit">Quay về</button>
+            {% endif %}
+        </form>
+
+        {% if not thongbao %}
+        <form class="d-flex lapphieu-control" action="/lapphieutiepnhan/thongbao" method="post">
+            <button class="btn btn-primary tieptheo-button" type="submit">Lập phiếu tiếp nhận</button>
+        </form>
+        {% endif %}
+    </div>
+
+    <div class="card p-4  xacnhan-form">
+        <div class="container mt-3">
+            <h3>THÔNG TIN PHIẾU TIẾP NHẬN</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Thông tin</th>
+                    <th>Giá trị</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if maPTN %}
+                <tr>
+                    <td>Mã phiếu tiếp nhận</td>
+                    <td>{{maPTN}}</td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td>Ngày lập</td>
+                    <td>{{ngayLap}}</td>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng</td>
+                    <td>{{dulieu.hoKhachHang}} {{dulieu.tenKhachHang}}</td>
+                </tr>
+                <tr>
+                    <td>Biển số</td>
+                    <td>{{dulieu.biensoxe}}</td>
+                </tr>
+                <tr>
+                    <td>Loại xe</td>
+                    <td>{{dulieu.loaixe}}</td>
+                </tr>
+                <tr>
+                    <td>Hãng xe</td>
+                    <td>{{dulieu.hangxe}}</td>
+                </tr>
+                <tr>
+                    <td>Lỗi mô tả</td>
+                    <td>{{dulieu.loiMoTa}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

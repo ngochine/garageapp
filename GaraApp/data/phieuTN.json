@@ -1,0 +1,72 @@
+[
+  {
+    "ngayLap": "2024-12-01 08:30:00",
+    "loiMoTa": "Xe bị rò rỉ dầu động cơ",
+    "maTaiKhoan": 1,
+    "maKhachHang": 1,
+    "maXe": 1
+  },
+  {
+    "ngayLap": "2024-12-01 09:15:00",
+    "loiMoTa": "Tiếng kêu bất thường từ hệ thống phanh",
+    "maTaiKhoan": 1,
+    "maKhachHang": 2,
+    "maXe": 2
+  },
+  {
+    "ngayLap": "2024-12-01 10:00:00",
+    "loiMoTa": "Đèn check engine sáng",
+    "maTaiKhoan": 6,
+    "maKhachHang": 3,
+    "maXe": 3
+  },
+  {
+    "ngayLap": "2024-12-02 08:45:00",
+    "loiMoTa": "Bảo dưỡng định kỳ 10,000km",
+    "maTaiKhoan": 1,
+    "maKhachHang": 4,
+    "maXe": 4
+  },
+  {
+    "ngayLap": "2024-12-02 11:20:00",
+    "loiMoTa": "Điều hòa không lạnh",
+    "maTaiKhoan": 6,
+    "maKhachHang": 5,
+    "maXe": 5
+  },
+  {
+    "ngayLap": "2024-12-03 09:30:00",
+    "loiMoTa": "Lốp xe bị mòn không đều",
+    "maTaiKhoan": 1,
+    "maKhachHang": 6,
+    "maXe": 6
+  },
+  {
+    "ngayLap": "2024-12-03 14:00:00",
+    "loiMoTa": "Hệ thống treo bị giảm xóc kém",
+    "maTaiKhoan": 9,
+    "maKhachHang": 7,
+    "maXe": 7
+  },
+  {
+    "ngayLap": "2024-12-04 08:15:00",
+    "loiMoTa": "Thay dầu hộp số định kỳ",
+    "maTaiKhoan": 1,
+    "maKhachHang": 8,
+    "maXe": 8
+  },
+  {
+    "ngayLap": "2024-12-04 10:45:00",
+    "loiMoTa": "Ắc quy yếu, khó khởi động",
+    "maTaiKhoan": 6,
+    "maKhachHang": 9,
+    "maXe": 9
+  },
+  {
+    "ngayLap": "2024-12-04 13:30:00",
+    "loiMoTa": "Gạt mưa bị mòn cần thay",
+    "maTaiKhoan": 9,
+    "maKhachHang": 10,
+    "maXe": 10
+  }
+]

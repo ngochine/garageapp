@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark position-sticky top-0 start-0 z-3" >
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766407454/download_aw7fn2.png" alt="HonTri" class="img-fluid" style="height: 40px">
+            <a class="navbar-brand" style="color: #ffffff !important" href="/">
+                HONTRI
+            </a>
+        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto align-items-center">
+
+                <!-- Trang chủ -->
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="/">
+                        Trang chủ
+                    </a>
+                </li>
+
+                <!-- Bảng điều khiển -->
+                <li class="nav-item ms-2">
+                    <a class="nav-link px-3 rounded" href="/admin" style="background:#ffc107; color:#000;">
+                        Bảng điều khiển
+                        <span class="badge bg-danger ms-1">Admin</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <form class="d-flex" action="{{url_for('dangnhap')}}">
+                <button class="btn btn-primary" type="submit" style="background-color: #0f2a91;" >Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+</nav>

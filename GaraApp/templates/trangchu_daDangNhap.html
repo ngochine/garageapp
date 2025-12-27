@@ -1,0 +1,252 @@
+{% extends "layout/base.html"%}
+{% block header %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark position-sticky top-0 start-0 z-3">
+    <div class="container-fluid">
+
+        <div class="d-flex align-items-center">
+            <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766407454/download_aw7fn2.png" alt="HonTri" class="img-fluid" style="height: 40px">
+            <a class="navbar-brand" style="color: #ffffff !important" href="/">
+                HONTRI
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mynavbar">
+
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="/trangchu/dangnhap">Trang chủ</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item me-3">
+                    <a style="background-color:#212529; color: #ffffff; cursor: pointer"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#menuChucNang">
+                        Chức năng khác
+                    </a>
+                </li>
+
+                <li class="nav-item me-2">
+                    <a class="navbar-brand d-flex align-items-center" href="/taikhoan">
+                        <img src="{{ current_user.avatar }}"
+                             alt="avatar"
+                             style="width:22px"
+                             class="rounded-pill me-1">
+                        <span style="color: #ffffff !important">Xin chào, {{ current_user.tenNguoiDung }}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="menuChucNang">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Các chức năng khác</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <ul class="list-group list-group-flush">
+
+            <a href="/lichlamviec"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Lịch làm việc
+            </a>
+
+            {% if current_user.vaiTro.name == "NHANVIEN" %}
+            <a href="/lapphieutiepnhan"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Lập phiếu tiếp nhận
+            </a>
+
+            {% elif current_user.vaiTro.name == "THUNGAN" %}
+            <a href="/chothanhtoan"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Tạo hóa đơn
+            </a>
+
+            <a href="/danhsachhoadon"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Danh sách hóa đơn
+            </a>
+            {% elif current_user.vaiTro.name== "KYTHUATVIEN" %}
+            <a href="/taoPSC"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Lập phiếu sửa chữa
+            </a>
+            <a href="/phieusc/capnhattrangthai"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Cập nhật phiếu sửa chữa
+            </a>
+            {% endif %}
+
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid text-white py-5" style="background-color: #052F5F">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4 fw-bold">HONTRI</h1>
+                <p class="fs-4 text-warning" >Quản lý trung tâm sửa chữa xe hiện đại & chuyên nghiệp</p>
+                <div class="mt-4">
+                    <button class="btn btn-info btn-lg me-2">Trải nghiệm ngay</button>
+                    <button class="btn btn-outline-light btn-lg">Liên hệ</button>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995470.png" class="img-fluid" width="350">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5" style="background-color: #fefefe">
+    <h2 class="fw-bold text-center text-uppercase text-primary">Thành tích nổi bật</h2>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="row g-3 mt-3 text-center">
+                <div class="col-6">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h3>25K+</h3>
+                            <p>Xe đã sửa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card bg-warning text-dark">
+                        <div class="card-body">
+                            <h3>98%</h3>
+                            <p>Khách hài lòng</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card bg-info text-white">
+                        <div class="card-body">
+                            <h3>10+</h3>
+                            <p>Năm kinh nghiệm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h3>Top 5</h3>
+                            <p>Gara uy tín</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766312464/655b81dc33c00f9fd29ce510700bdebf_qp77rj.jpg"
+                 class="img-fluid" width="600">
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4 text-success text-uppercase">Dịch vụ chính</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Hạng mục sửa chữa</h5>
+                        <p class="text-muted">Quản lý các hạng mục sửa chữa, chi phí dịch vụ và cấu trúc công việc</p>
+                        <a href="#" class="btn btn-outline-info"> Quản lý hạng mục</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Linh kiện sửa chữa</h5>
+                        <p class="text-muted">Theo dõi số lượng tồn kho, đơn giá và hình ảnh linh kiện</p>
+                        <a href="/admin/linhkien/" class="btn btn-outline-success">Quản lý linh kiện</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Quy định hệ thống</h5>
+                        <p class="text-muted">Điều chỉnh thuế VAT, số xe tiếp nhận/ngày và các quy định vận hành</p>
+                        <a href="#" class="btn btn-outline-warning">Quản lý quy định</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-dark py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4 text-warning">Nhân viên đạt KPI cao</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766313786/415260363a799b233a2f45746f850923_olgzsg.jpg" class="rounded-circle mb-2">
+                        <h5>Văn Trung Thành</h5>
+                        <span class="badge bg-success p-2">Nhân viên ưu tú tháng</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                       <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766313708/35b95d705b93dd29081ebff4ed2d02bb_s75mh0.jpg" class="rounded-circle mb-2">
+                        <h5>Bùi Thiên Hương Thảo</h5>
+                        <span class="badge bg-success p-2">Nhân viên ưu tú tháng</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                         <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766313786/415260363a799b233a2f45746f850923_olgzsg.jpg" class="rounded-circle mb-2">
+                        <h5>Nguyễn Thanh Phong</h5>
+                        <span class="badge bg-success p-2">Nhân viên ưu tú tháng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 text-center">
+    <h2 class="fw-bold">Đánh giá của nhân viên</h2>
+    <p class="fs-5 fst-italic">"Được làm việc trong môi trường tốt, tui rất vui"</p>
+
+    <div class="container mt-3" style="max-width:600px">
+        <div class="input-group">
+            <span class="input-group-text">Đánh giá</span>
+            <input type="text" class="form-control" placeholder="Nhập cảm nhận...">
+            <button class="btn btn-dark">Gửi</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

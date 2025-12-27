@@ -1,0 +1,108 @@
+{% extends "trangchu_daDangNhap.html"%}
+{% block body%}
+
+<div class="taikhoan-card m-5">
+    <div class="card anhUser-card">
+        <div class="avatar-wrapper">
+        <img src="{{ current_user.avatar }}" alt="Avatar">
+    </div>
+    </div>
+
+    <div class=" card thongtin_user">
+        {% if success_action %}
+        <div class="alert alert-success mt-2">
+            {{success_action}}
+        </div>
+        {% endif %}
+        {% if err_msg %}
+        <div class="alert alert-danger mt-2">
+            {{ err_msg }}
+        </div>
+        {% endif %}
+
+
+        <h2>Hồ sơ của bạn</h2>
+        <form action="/capnhatmatkhau">
+            <button type="submit" class="btn btn-warning" style="color:white;">
+                Thay đổi mật khẩu
+            </button>
+        </form>
+        <form action="/capnhathoso" method="get">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>
+                    <img src="{{current_user.avatar}}" alt="Avatar Logo" style="width:50px; " class="rounded-pill">
+                </td>
+                <td>Ảnh hồ sơ</td>
+                <td>
+                    {% if current_user.avatar != "https://res.cloudinary.com/dvfuzolim/image/upload/v1765610534/pngtree-dark-gray-simple-avatar-png-image_3418404_ejyjas.jpg" %}
+                    <button type="submit" class="btn btn-danger" style="margin-right: 10px" name="action" value="delete_avatar">Xóa</button>
+                    {% else %}
+                    <button type="submit" class="btn btn-danger" style="margin-right: 10px" name="action" value="delete_avatar" disabled>Xóa</button>
+                    {% endif %}
+                    <button type="submit" class="btn btn-outline-danger" name="action" value="change_avatar">Thay đổi</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Tên người dùng</td>
+                <td>{{current_user.tenNguoiDung}}</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-danger" name="action" value="change_username">Thay đổi</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Số điện thoại</td>
+                <td>{{current_user.nhanvien.SDT}}</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-danger" name="action" value="change_phone">Thay đổi</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Địa chỉ email</td>
+                <td>{{current_user.nhanvien.email}}</td>
+                <td>
+                    <button type="submit" class="btn btn-outline-danger" name="action" value="change_email">Thay đổi</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Họ tên</td>
+                <td>{{current_user.nhanvien.ho}} {{current_user.nhanvien.ten}}</td>
+            </tr>
+            <tr>
+                <td>Vị trí</td>
+                {% if current_user.vaiTro.name=="NHANVIEN" %}
+                <td>Nhân viên tiếp nhận</td>
+                {% elif current_user.vaiTro.name=="KYTHUATVIEN" %}
+                <td>Kỹ thuật viên</td>
+                {% elif current_user.vaiTro.name=="THUNGAN" %}
+                <td>Thu ngân</td>
+                {% else %}
+                <td>Quản lý</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Ngày vào làm</td>
+                <td>{{current_user.nhanvien.ngayVaoLam.strftime('%d/%m/%Y')}}</td>
+            </tr>
+            <tr>
+                <td>Ngày tạo tài khoản</td>
+                <td>{{current_user.ngayTaoTaiKhoan.strftime('%d/%m/%Y')}}</td>
+            </tr>
+            <tr>
+                <td>Ngày sinh</td>
+                <td>{{current_user.nhanvien.ngaySinh.strftime('%d/%m/%Y')}}</td>
+            </tr>
+            <tr>
+                <td>Giới tính</td>
+                <td>{{current_user.nhanvien.gioiTinh}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+            </form>
+    </div>
+</div>
+
+
+{% endblock %}

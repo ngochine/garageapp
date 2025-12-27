@@ -1,0 +1,113 @@
+body {
+  font-family: 'Inter', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(90deg, #b7ebe7, #e4e8e6, #75e6e5, #b6dae9, #7cc9eb);
+}
+
+.table, .table th, .table td {
+  background-color: transparent !important;
+}
+
+.xeinfo tr td:last-child{
+     text-align: right;
+}
+.navbar {
+    background-color: white !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: black !important;
+    font-size: 18px;
+    padding: 8px 16px;
+}
+
+.nav-link:hover {
+    color: #a8c1ff !important;
+}
+
+
+body {
+    background: linear-gradient(90deg, #b7ebe7, #e4e8e6)
+}
+
+.p1{
+    margin: 30px
+}
+
+.h0{
+    font-family: 'Tan Pearl';
+    color: #0f2a91;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.h1{
+    font-family: 'Tan Pearl';
+    font-size: 100px ;
+    color: white;
+    text-align: center;
+}
+
+.more-experience{
+    margin: 50px;
+    text-align: center;
+}
+
+.p2{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.card{
+    padding: 2rem;
+    margin: 5px;
+    height: 200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.p3{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 200px;
+}
+.feedback-card{
+    width: 800px;
+    height: 300px;
+    background: linear-gradient(90deg, #8c52ff, #5ce1e6);
+}
+.stars {
+    font-size: 40px;
+    color: gold;
+    letter-spacing: 5px;
+}
+
+footer{
+    display: flex;
+    background-color: #8c52ff;
+
+}
+
+.contact-card{
+    width: 500px;
+    height: 280px;
+    background-color: transparent;
+    color: white;
+}
+
+.social-link {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: white;
+}
+
+
+/* trong menu offcanvas */
+.list-group-item{
+    margin: 10px;
+}
+
