@@ -11,7 +11,8 @@ Lập phiếu tiếp nhận, lập phiếu sửa chữa, lập hoá đơn thanh 
 |----------------|---------------------------|
 |**Bootstrap Framework**| Frontend|
 | **Flask Framework** | Backend|
-| **MySQL** | Lưu trữ dữ liệu sản phẩm và lịch sử phân tích |
+| **MySQL** | Quản lý và lưu trữ dữ liệu |
+| **PythonAnyWhere** | Triển khai ứng dụng trên internet |
 
 ---
 
