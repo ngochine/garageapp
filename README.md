@@ -15,8 +15,8 @@ Với đề tài được đặt ra là ***Xây dựng hệ thống quản lý t
 
 ## Liên kết sản phẩm trình bày
 
-[Xem chi tiết sản phẩm tại đây](https://ngoctrinh.pythonanywhere.com/)
-[Xem chi tiết báo cáo tại đây](https://drive.google.com/file/d/1Z1NHp1QGBYaW4VkL_UNdlHU8Ixkdoxhp/view?usp=sharing)
+- [Xem chi tiết sản phẩm tại đây](https://ngoctrinh.pythonanywhere.com/)
+- [Xem chi tiết báo cáo tại đây](https://drive.google.com/file/d/1Z1NHp1QGBYaW4VkL_UNdlHU8Ixkdoxhp/view?usp=sharing)
 
 ---
 ## Hướng dẫn cài đặt
@@ -35,7 +35,7 @@ git clone <url>
 
 | **STT** | **Họ và tên** | **Mã số sinh viên** | **Phương thức liên lạc** |
 |:-------:|----------------|----------------------|---------------------------|
-| 1 | **Hồ Thị Ngọc Trinh** | 2351050189 | 📧 2351050189trinh@ou.edu.vn |
-| 2 | **Lê Thị Mai Hồng** | 2351050049 | 📧 lethimaihong05s@gmail.com |
+| 1 | **Hồ Thị Ngọc Trinh** | 2351050189 | 2351050189trinh@ou.edu.vn |
+| 2 | **Lê Thị Mai Hồng** | 2351050049 | 2351050049hong@ou.edu.vn |
 
 *** Cảm ơn mọi người đã xem dự án của chúng tôi ***
