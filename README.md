@@ -23,7 +23,6 @@ Với đề tài được đặt ra là ***Xây dựng hệ thống quản lý t
 - Cần có một database MySQL phục vụ cho project
 ```
 git clone <url>
-./run.sh
 ```
 - Mở file __init__.py và thay đổi thông tin kết nối database cho phù hợp: Tên database, Username, Password
 ```
