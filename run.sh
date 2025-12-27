@@ -10,8 +10,3 @@ fi
 source venv/Scripts/activate
 
 pip install -r requirements.txt
-
-cd GaraApp
-python models.py
-python insertdb.py
-python index.py

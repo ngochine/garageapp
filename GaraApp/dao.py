@@ -5,7 +5,7 @@ from flask_login import current_user
 from sqlalchemy import func, or_
 
 from GaraApp import app, db
-from models import PhieuTiepNhan, HangMuc, LinhKien, PhieuSuaChua, ChiTietHangMucSuaChua, ChiTietLinhKienSuaChua, \
+from .models import PhieuTiepNhan, HangMuc, LinhKien, PhieuSuaChua, ChiTietHangMucSuaChua, ChiTietLinhKienSuaChua, \
     KhachHang, Xe, ct_quanlyquydinh, TaiKhoan, LoaiXe, CaLam, PhanCongCaLam, UserRole, NhanVien, ct_quanlylinhkien, \
     ct_quanlyhangmuc, QuyDinh, YeuCau, YeuCauStatus, HoaDon, DiaChi
 

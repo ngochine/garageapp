@@ -14,7 +14,7 @@ from wtforms import Form, ValidationError, SelectField, TextAreaField
 from wtforms.widgets import TextArea
 
 from GaraApp import app, db, dao
-from models import HangMuc, LinhKien, QuyDinh, UserRole, TaiKhoan, PhanCongCaLam, CaLam, NhanVien, YeuCauStatus
+from .models import HangMuc, LinhKien, QuyDinh, UserRole, TaiKhoan, PhanCongCaLam, CaLam, NhanVien, YeuCauStatus
 
 
 class AuthenticatedView(ModelView):
