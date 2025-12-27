@@ -7,11 +7,11 @@ import cloudinary
 import cloudinary.uploader
 from flask import Flask, render_template, request, session, jsonify, flash, url_for
 from werkzeug.utils import redirect
-import dao
+from . import dao
 from GaraApp import app, login, admin
 from flask_login import login_user, logout_user, login_required, current_user
 
-from models import PhieuTiepNhan, KhachHang, PhieuSuaChua, HoaDon, YeuCauStatus
+from .models import PhieuTiepNhan, KhachHang, PhieuSuaChua, HoaDon, YeuCauStatus
 
 
 @app.route("/")
