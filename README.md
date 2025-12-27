@@ -1,6 +1,8 @@
 # GarageApp
 Dự án phục vụ bài tập lớn môn Công nghệ phần mềm. 
-Với đề tài được đặt ra là ***Xây dựng hệ thống quản lý trung tâm sửa xe***, nhóm đã hiện thực đề tài với các chức năng nổi bật như: Lập phiếu tiếp nhận, lập phiếu sửa chữa, lập hoá đơn thanh toán, quản lý các linh kiện hạng mục phục vụ cho công tác sửa chữa, cũng như quản lý cơ sở sửa chữa thông qua các biểu đồ thống kê trực quan, cụ thể,...
+
+Với đề tài được đặt ra là ***Xây dựng hệ thống quản lý trung tâm sửa xe***, nhóm đã hiện thực đề tài với các chức năng nổi bật như: 
+Lập phiếu tiếp nhận, lập phiếu sửa chữa, lập hoá đơn thanh toán, quản lý các linh kiện hạng mục phục vụ cho công tác sửa chữa, cũng như quản lý cơ sở sửa chữa thông qua các biểu đồ thống kê trực quan, cụ thể,...
 
 ---
 ## Công Nghệ Sử Dụng
