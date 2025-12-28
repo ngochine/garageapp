@@ -1,4 +1,5 @@
-{% extends "trangchu_daDangNhap.html"%}
+{% extends "layout/base.html"%}
+{% block title %}Thông tin tài khoản{% endblock %}
 {% block body%}
 
 <div class="taikhoan-card m-5">
@@ -53,7 +54,11 @@
             </tr>
             <tr>
                 <td>Số điện thoại</td>
+                {% if current_user.nhanvien.SDT %}
                 <td>{{current_user.nhanvien.SDT}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
                 <td>
                     <button type="submit" class="btn btn-outline-danger" name="action" value="change_phone">Thay đổi</button>
                 </td>
@@ -89,10 +94,14 @@
                 <td>Ngày tạo tài khoản</td>
                 <td>{{current_user.ngayTaoTaiKhoan.strftime('%d/%m/%Y')}}</td>
             </tr>
+
             <tr>
                 <td>Ngày sinh</td>
+                {% if current_user.nhanvien.ngaySinh %}
                 <td>{{current_user.nhanvien.ngaySinh.strftime('%d/%m/%Y')}}</td>
+                {% endif %}
             </tr>
+
             <tr>
                 <td>Giới tính</td>
                 <td>{{current_user.nhanvien.gioiTinh}}</td>

@@ -1,37 +1,101 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark position-sticky top-0 start-0 z-3" >
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark position-sticky top-0 start-0 z-3">
     <div class="container-fluid">
+
         <div class="d-flex align-items-center">
             <img src="https://res.cloudinary.com/dvfuzolim/image/upload/v1766407454/download_aw7fn2.png" alt="HonTri" class="img-fluid" style="height: 40px">
             <a class="navbar-brand" style="color: #ffffff !important" href="/">
                 HONTRI
             </a>
         </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto align-items-center">
 
-                <!-- Trang chủ -->
+        <div class="collapse navbar-collapse" id="mynavbar">
+
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="/">
-                        Trang chủ
+                    <a class="nav-link active text-white" href="/">Trang chủ</a>
+                </li>
+            </ul>
+            {% if current_user.is_authenticated %}
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item me-3">
+                    <a style="background-color:#212529; color: #ffffff; cursor: pointer"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#menuChucNang">
+                        Chức năng khác
                     </a>
                 </li>
 
-                <!-- Bảng điều khiển -->
-                <li class="nav-item ms-2">
-                    <a class="nav-link px-3 rounded" href="/admin" style="background:#ffc107; color:#000;">
-                        Bảng điều khiển
-                        <span class="badge bg-danger ms-1">Admin</span>
+                <li class="nav-item me-2">
+                    <a class="navbar-brand d-flex align-items-center" href="/taikhoan">
+                        <img src="{{ current_user.avatar }}"
+                             alt="avatar"
+                             style="width:22px"
+                             class="rounded-pill me-1">
+                        <span style="color: #ffffff !important">Xin chào, {{ current_user.tenNguoiDung }}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/logout">
+                        <i class="bi bi-box-arrow-right"></i>
                     </a>
                 </li>
 
             </ul>
-
+            {% else %}
             <form class="d-flex" action="{{url_for('dangnhap')}}">
                 <button class="btn btn-primary" type="submit" style="background-color: #0f2a91;" >Đăng nhập</button>
             </form>
+            {%endif%}
         </div>
     </div>
 </nav>
+
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="menuChucNang">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Các chức năng khác</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <ul class="list-group list-group-flush">
+
+            <a href="/lichlamviec"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Lịch làm việc
+            </a>
+
+            {% if current_user.is_authenticated and current_user.vaiTro.name == "NHANVIEN" %}
+            <a href="/lapphieutiepnhan"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Lập phiếu tiếp nhận
+            </a>
+
+            {% elif current_user.is_authenticated and current_user.vaiTro.name == "THUNGAN" %}
+            <a href="/chothanhtoan"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Tạo hóa đơn
+            </a>
+
+            <a href="/danhsachhoadon"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Danh sách hóa đơn
+            </a>
+            {% elif current_user.is_authenticated and current_user.vaiTro.name== "KYTHUATVIEN" %}
+            <a href="/taoPSC"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Lập phiếu sửa chữa
+            </a>
+            <a href="/phieusc/capnhattrangthai"
+               class="list-group-item list-group-item-action bg-dark text-white">
+                Cập nhật phiếu sửa chữa
+            </a>
+            {% endif %}
+
+        </ul>
+    </div>
+</div>

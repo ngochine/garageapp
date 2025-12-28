@@ -6,16 +6,19 @@ from decimal import Decimal
 import cloudinary
 import cloudinary.uploader
 from flask import Flask, render_template, request, session, jsonify, flash, url_for
+from sqlalchemy.sql.functions import user
 from werkzeug.utils import redirect
-from . import dao
+import dao
 from GaraApp import app, login, admin
 from flask_login import login_user, logout_user, login_required, current_user
 
-from .models import PhieuTiepNhan, KhachHang, PhieuSuaChua, HoaDon, YeuCauStatus
+from models import PhieuTiepNhan, KhachHang, PhieuSuaChua, HoaDon, YeuCauStatus, UserRole
 
 
 @app.route("/")
 def index():
+    if current_user.is_authenticated and current_user.vaiTro == UserRole.QUANLY:
+        return redirect("/admin")
     return render_template("trangchu.html")
 
 @app.route("/taoPSC")
@@ -246,7 +249,8 @@ def get_user(tk_id):
 @app.route("/logout")
 def logout_my_user():
     logout_user()
-    return redirect("/login")
+    session.clear()
+    return redirect("/")
 
 
 @app.route('/admin/api/phan-cong-ca', methods=['POST'])
@@ -269,7 +273,7 @@ def phan_cong_ca():
 @app.route('/dangnhap', methods=['GET', 'POST'])
 def dangnhap():
     if current_user.is_authenticated:
-        return redirect("/trangchu/dangnhap")
+        return redirect("/")
 
     err_msg=None
     if request.method == 'POST':
@@ -280,7 +284,7 @@ def dangnhap():
 
         if user:
             login_user(user)
-            return redirect('/trangchu/dangnhap')
+            return redirect('/')
         else:
             err_msg="Tên người dùng hoặc mật khẩu chưa đúng!!!"
 
@@ -391,11 +395,10 @@ def capnhathoso():
     return render_template("user/thongtintaikhoan.html", success_action=success_action, err_msg=err_msg)
 
 
-# Trang chủ đã đăng nhập
-@app.route('/trangchu/dangnhap')
-def trangchu():
-    return render_template("trangchu_daDangNhap.html")
-
+# # Trang chủ đã đăng nhập
+# @app.route('/trangchu/dangnhap')
+# def trangchu():
+#     return render_template("trangchu_daDangNhap.html")
 
 # Phiếu tiếp nhận : Lấy dữ liệu xuống server
 @app.route('/lapphieutiepnhan', methods=['GET', 'POST'])

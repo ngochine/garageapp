@@ -14,7 +14,7 @@ from wtforms import Form, ValidationError, SelectField, TextAreaField
 from wtforms.widgets import TextArea
 
 from GaraApp import app, db, dao
-from .models import HangMuc, LinhKien, QuyDinh, UserRole, TaiKhoan, PhanCongCaLam, CaLam, NhanVien, YeuCauStatus
+from models import HangMuc, LinhKien, QuyDinh, UserRole, TaiKhoan, PhanCongCaLam, CaLam, NhanVien, YeuCauStatus
 
 
 class AuthenticatedView(ModelView):
@@ -380,8 +380,8 @@ admin.add_view(YeuCauView(name="Xử lý yêu cầu",category="Quản lý kho"))
 
 admin.add_view(QuyDinhAdmin(QuyDinh, db.session,name="Quản lý quy định"))
 
-admin.add_view(QuanLyTaiKhoanAdmin(TaiKhoan,db.session, name="Quản lý tài khoản",category="Quản lý nhân sự"))
 admin.add_view(QuanLyNhanVienAdmin(NhanVien,db.session, name="Quản lý nhân viên",category="Quản lý nhân sự"))
+admin.add_view(QuanLyTaiKhoanAdmin(TaiKhoan,db.session, name="Quản lý tài khoản",category="Quản lý nhân sự"))
 
 admin.add_view(CaLamAdmin(CaLam,db.session,name="Quản lý ca làm",category="Quản lý ca làm"))
 admin.add_view(PhanCongCaLamAdmin(PhanCongCaLam,db.session, name="Danh sách ca làm",category="Quản lý ca làm"))
